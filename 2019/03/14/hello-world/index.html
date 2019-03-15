@@ -15,10 +15,19 @@
 <meta property="og:site_name" content="其实是王小质的博客">
 <meta property="og:description" content="O 踩了N多坑总结出以下经验一步一步绝对能成 mac+windows 一 常见有三种博客搭建方案 workpress   一般需要独立域名(充钱)有广告，做许多东西需要升级至高级版(还是充钱)，手机版访问麻烦(所以我直接扔了那个博客)   GitHub + jekyll   稍微麻烦一点 (其实是作者技术太挫)   GitHub + Hexo  C位当然要有配图  免费 简单 据说用的人还多 所以">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-15T03:41:09.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog8.png">
+<meta property="og:updated_time" content="2019-03-15T03:56:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用GitHub+hexo创建个博客">
 <meta name="twitter:description" content="O 踩了N多坑总结出以下经验一步一步绝对能成 mac+windows 一 常见有三种博客搭建方案 workpress   一般需要独立域名(充钱)有广告，做许多东西需要升级至高级版(还是充钱)，手机版访问麻烦(所以我直接扔了那个博客)   GitHub + jekyll   稍微麻烦一点 (其实是作者技术太挫)   GitHub + Hexo  C位当然要有配图  免费 简单 据说用的人还多 所以">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/14/hello-world/img/blog1.png">
   
     <link rel="alternative" href="/atom.xml" title="其实是王小质的博客" type="application/atom+xml">
   
@@ -202,11 +211,11 @@
 <ol>
 <li>先点击这里创建</li>
 </ol>
-<p><a href="./img/blog1.png">点击创建项目</a></p>
+<p><img src="./img/blog1.png" alt="点击创建项目"></p>
 <ol start="2">
 <li>创建项目的是时候Repositoryname需要同Owner一样然后补齐github.io</li>
 </ol>
-<p><a href="./img/blog2.png">设置仓库名</a></p>
+<p><img src="./img/blog2.png" alt="设置仓库名"></p>
 <ol start="3">
 <li>然后点击 Create repository创建就好</li>
 </ol>
@@ -214,7 +223,7 @@
 <h4 id="先怼node-js"><a href="#先怼node-js" class="headerlink" title="先怼node,js"></a>先怼node,js</h4><p>mac: 去<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>官网，我下载了左边的那个 然后一路安装即可</p>
 <p>windows: <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>下载windows就可以<br>下载安装包，安装Node.js会包含环境变量及npm的安装，安装之后可以在命令行中输入node -v看看是否安装成功。</p>
 <p>如果 git bash 里报错了，就去环境变量里看看有没有 nodejs，没有的话需要把nodejs地址添加一下如果已经有了，重启电脑。</p>
-<h4 id="再对git"><a href="#再对git" class="headerlink" title="再对git"></a>再对git</h4><p>mac: <a href="https://www.git-scm.com/download/mac" target="_blank" rel="noopener">点击这里进入页面自动下载了</a></p>
+<h4 id="再怼git"><a href="#再怼git" class="headerlink" title="再怼git"></a>再怼git</h4><p>mac: <a href="https://www.git-scm.com/download/mac" target="_blank" rel="noopener">点击这里进入页面自动下载了</a></p>
 <p>windows: <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">点击这里进入页面直接下载了</a>记得git -v 查看是否安装成功失败了请参看其他详细git安装教程(我反正没失败过)</p>
 <h4 id="然后就可以安装Hexo了"><a href="#然后就可以安装Hexo了" class="headerlink" title="然后就可以安装Hexo了"></a>然后就可以安装Hexo了</h4><h5 id="mac"><a href="#mac" class="headerlink" title="mac:"></a>mac:</h5><p>  Node.js和Git都安装好后就可以安装Hexo了。</p>
 <p>  终端执行怼下命令： sudo npm install -g hexo</p>
@@ -231,9 +240,9 @@
 <p>输入ls -a 查看所有文件 在输入cat.ssh\id_rsa.pub打开文件</p>
 <p>复制里面全部内容</p>
 <p>然后打开git设置(点击头像 seeings)</p>
-<p><a href="./img/blog3.png">配置新的ssh</a></p>
+<p><img src="./img/blog3.png" alt="配置新的ssh"></p>
 <p>然后粘贴你的密钥 Add SSH key保存</p>
-<p><a href="./img/blog4.png">加入密钥保存</a></p>
+<p><img src="./img/blog4.png" alt="加入密钥保存"></p>
 <h4 id="进入主题了"><a href="#进入主题了" class="headerlink" title="进入主题了"></a>进入主题了</h4><h5 id="mac-1"><a href="#mac-1" class="headerlink" title="mac"></a>mac</h5><p>我们先找个地方创建一个文件夹这里会存放你的blog(博客)全部内容</p>
 <p>打开终端进入这个文件夹目录 blog是你的文件夹名称</p>
 <p>输入hexo init blog</p>
@@ -248,9 +257,9 @@
 <p>而我们themes文件夹每个主题文件里也有一个_config.yml他是配置主题的文件</p>
 <p>我们打开blog里面的_config.yml 输入vim _config.yml</p>
 <p>翻到最下面改成这样没有就加上</p>
-<p><a href="./img/blog5.png">这样</a></p>
+<p><img src="./img/blog5.png" alt="这样"></p>
 <p>你的地址在这里</p>
-<p><a href="./img/blog6.png">在这里</a></p>
+<p><img src="./img/blog6.png" alt="在这里"></p>
 <p>这里需要注意坑二 每一个配置的 ： 后面要有一个空格！！！！<br>然后保存站点配置</p>
 <p>在blog文件夹目录里面执行一下生成静态页面命令</p>
 <p>输入 hexo g  (或是hexo generate)</p>
@@ -278,9 +287,9 @@
 <h4 id="写下更换主题吧"><a href="#写下更换主题吧" class="headerlink" title="写下更换主题吧"></a>写下更换主题吧</h4><p>在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>里找到一款主题我的是yilia</p>
 <p>下载这个主题</p>
 <p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-<p><a href="./img/blog7.png">这里会多一个</a></p>
+<p><img src="./img/blog7.png" alt="这里会多一个"></p>
 <p>打开站点的_config.yml配置文件，将里面的 theme: landscape 改为 theme: yilia.</p>
-<p><a href="./img/blog8.png">改成你主题的名字</a></p>
+<p><img src="./img/blog8.png" alt="改成你主题的名字"></p>
 <p>然后还是 hexo g 和 hexo d</p>
 <p>最后访问下你的博客吧这里在看看扔出我的</p>
 <p><a href="https://zpangjie.github.io/" target="_blank" rel="noopener">张胖杰的博客</a></p>
