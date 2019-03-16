@@ -199,61 +199,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>vi是是类unix系统下最受欢迎的两个编辑器之一，另一个是Emacs。vi的作者是Bill Joy，Vim可以看成是vi的升级版，他完全兼容vi，它的作者是Bram Moolenaar。vi/vim的学习曲线比较陡峭，不过一旦熟练掌握后，可以大大提高编辑效率。</p>
-<p>下面我们简单学习一下Vim的使用：</p>
-<h4 id="vi-vim的模式"><a href="#vi-vim的模式" class="headerlink" title="vi/vim的模式"></a>vi/vim的模式</h4><p><strong>1. 命令模式(浏览模式)</strong></p>
-<p>控制屏幕光标的移动，删除字符、字或行等。</p>
-<p><strong>2. 插入模式</strong></p>
-<p>只有在Insert mode下，才可以做文字输入，按[<code>ESC</code>]键可回到命令行模式</p>
-<p><strong>3. 底行模式</strong></p>
-<p>可以保存文件、退出vi、设置vi、查找等功能</p>
-<h4 id="部分功能使用说明"><a href="#部分功能使用说明" class="headerlink" title="部分功能使用说明"></a>部分功能使用说明</h4><p>一、打开文件、保存、关闭文件(“命令模式”下使用)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi filename //打开filename文件 </span><br><span class="line">:w          //保存文件 </span><br><span class="line">:w 1.txt    //保存至1.txt文件 </span><br><span class="line">:q          //退出编辑器 </span><br><span class="line">:q!         //退出编辑器，且不保存 </span><br><span class="line">:wq         //退出编辑器，且保存文件</span><br><span class="line">:x          //保存内容并退出</span><br></pre></td></tr></table></figure></p>
-<p>二、插入文本或行(在“命令模式”下使用，执行下面命令后将进入“插入模式”，按ESC键可退出“插入模式”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a    //在当前光标位置的右边添加文本 </span><br><span class="line">i    //在当前光标位置的左边添加文本 </span><br><span class="line">A    //在当前行的末尾位置添加文本 </span><br><span class="line">I    //在当前行的开始处添加文本(非空字符的行首) </span><br><span class="line">O    //在当前行的上面新建一行 </span><br><span class="line">o    //在当前行的下面新建一行 </span><br><span class="line">R    //替换(覆盖)当前光标位置及后面的若干文本 </span><br><span class="line">J    //合并光标所在行及下一行为一行(依然在命令模式)</span><br></pre></td></tr></table></figure></p>
-<p>三、移动光标(“命令模式”下使用) </p>
-<p>1、使用上下左右方向键 </p>
-<p>2、命令模式下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    h   //向左</span><br><span class="line">    j   //向下 </span><br><span class="line">    k   //向上</span><br><span class="line">    l   //向右 </span><br><span class="line">    空格键 //向右</span><br><span class="line">    Backspace  //向左</span><br><span class="line">    Enter  //移动到下一行首</span><br><span class="line">    -  //移动到上一行首</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">四、删除、恢复字符或行(“命令模式”下使用)</span><br></pre></td></tr></table></figure></p>
-<pre><code>x       //删除当前字符 
-nx      //删除从光标开始的n个字符 
-dd      //删除当前行 
-ndd     //向下删除当前行在内的n行 
-u       //撤销上一步操作
-ctrl+R  //反撤销，和u的功能相反
-U       //撤销对当前行的所有操作 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">五、搜索(“底行模式”下使用)</span><br></pre></td></tr></table></figure>
-<pre><code>/str    //向光标下搜索str字符串 
-?str    //向光标上搜索str字符串 
-n       //向下搜索前一个搜素动作 
-N       //向上搜索前一个搜索动作 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">六、跳至指定行(“命令模式”下使用)</span><br></pre></td></tr></table></figure>
-<pre><code>n+        //向下跳n行 
-n-        //向上跳n行 
-nG        //跳到行号为n的行 
-G         //跳至文件的底部 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">七、设置行号(“底行模式”下使用)</span><br></pre></td></tr></table></figure>
-<pre><code>:set  nu     //显示行号 
-:set nonu    //取消显示行号 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">八、复制、粘贴(“命令模式”下使用)</span><br></pre></td></tr></table></figure>
-<pre><code>yy    //将当前行复制到粘贴板缓冲区，也可以用 &quot;ayy 复制，&quot;a 为粘贴板缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。 
-nyy   //将当前行向下n行复制到粘贴板缓冲区，也可以用 &quot;anyy 复制，&quot;a 为粘贴板缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。 
-yw    //复制从光标开始到词尾的字符。 
-nyw   //复制从光标开始的n个单词。 
-y^    //复制从光标到行首的内容。
-y$    //复制从光标到行尾的内容。 
-p     //粘贴剪切板里的内容在光标后，如果使用了前面的自定义缓冲区，建议使用&quot;ap 进行粘贴。 
-P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定义缓冲区，建议使用&quot;aP 进行粘贴。 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">九、替换(“命令模式”下使用)</span><br></pre></td></tr></table></figure>
-<pre><code>:s/old/new          //用new替换行中首次出现的old 
-:s/old/new/g        //用new替换行中所有的old 
-:n,m s/old/new/g    //用new替换从n到m行里所有的old 
-:%s/old/new/g       //用new替换当前文件里所有的old 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">十、编辑其他文件</span><br></pre></td></tr></table></figure>
-<pre><code>:e otherfilename    //新建一个文件名为otherfilename的文件。
-</code></pre><p><code>`</code></p>
-
+        <p>vi是是类unix系统下最受欢迎的两个编辑器之一，另一个是Emacs。vi的作者是Bill Joy，Vim可以看成是vi的升级版，他完全兼容vi，它的作者是Bram Moolenaar。vi/vim的学习曲线比较陡峭，不过一旦熟练掌握后，可以大大提高编辑效率。<br>
+        
+          <a class="article-more-a" href="/2019/03/16/Vi和Vim的简单使用/#more">more >></a>
+        
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -309,7 +262,7 @@ P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/Linux命令/">Linux初探</a>
+      <a class="article-title" href="/2019/03/16/Linux命令/">Linux命令初探</a>
     </h1>
   
 
@@ -322,7 +275,8 @@ P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="超级管理员"><a href="#超级管理员" class="headerlink" title="超级管理员"></a>超级管理员</h2><p>CentOS/RedHat系统的超级管理员账号为：root</p>
+        <a id="more"></a>
+<h2 id="超级管理员"><a href="#超级管理员" class="headerlink" title="超级管理员"></a>超级管理员</h2><p>CentOS/RedHat系统的超级管理员账号为：root</p>
 <h2 id="开胃小菜"><a href="#开胃小菜" class="headerlink" title="开胃小菜"></a>开胃小菜</h2><p>不懂Linux控制台命令，相当于不懂Linux，因此我们要好好学习。先看几个开胃小菜，打开控制台。</p>
 <h4 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//方法1</span><br><span class="line">shutdown -h now</span><br><span class="line">//方法2</span><br><span class="line">poweroff</span><br><span class="line">//方法3</span><br><span class="line">halt</span><br></pre></td></tr></table></figure>
 <h4 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//方法1</span><br><span class="line">reboot</span><br><span class="line">//方法2</span><br><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure>
@@ -462,7 +416,7 @@ P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/linux简介下载/">Linux的简介</a>
+      <a class="article-title" href="/2019/03/16/linux简介下载/">Linux的简介(含下载地址)</a>
     </h1>
   
 
@@ -475,7 +429,8 @@ P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Linux的特点"><a href="#Linux的特点" class="headerlink" title="Linux的特点"></a>Linux的特点</h3><ol>
+        <a id="more"></a>
+<h3 id="Linux的特点"><a href="#Linux的特点" class="headerlink" title="Linux的特点"></a>Linux的特点</h3><ol>
 <li>免费/开源</li>
 <li>支持多用户、多线程</li>
 <li>安全性好</li>
@@ -567,7 +522,8 @@ P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h2><h3 id="计算机的诞生"><a href="#计算机的诞生" class="headerlink" title="计算机的诞生"></a>计算机的诞生</h3><p>1946年2月14日，在美国宾夕法尼亚大学，世界上第一台计算机ENIAC诞生，是美国军方定制，专门为了计算弹道和射击特性表面而研制的，承担开发任务的“莫尔小组”由四位科学家和工程师埃克特、莫克利、戈尔斯坦、博克斯组成。这台计算机主要元器件采用的是电子管。该机使用了1500个继电器，18800个电子管，占地170m2，重量重达30多吨，耗电150KW，造价48万美元。开机时让周围居民暂时停电。这台计算机每秒能完成5000次加法运算，400次乘法运算，比当时最快的计算工具快300倍，是继电器计算机的1000倍、手工计算的20万倍。用今天的标准看，它是那样的“笨拙”和“低级”，其功能远不如一只掌上可编程计算器，但它使科学家们从复杂的计算中解脱出来，它的诞生标志着人类进入了一个崭新的信息革命时代。</p>
+        <a id="more"></a>
+<h2 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h2><h3 id="计算机的诞生"><a href="#计算机的诞生" class="headerlink" title="计算机的诞生"></a>计算机的诞生</h3><p>1946年2月14日，在美国宾夕法尼亚大学，世界上第一台计算机ENIAC诞生，是美国军方定制，专门为了计算弹道和射击特性表面而研制的，承担开发任务的“莫尔小组”由四位科学家和工程师埃克特、莫克利、戈尔斯坦、博克斯组成。这台计算机主要元器件采用的是电子管。该机使用了1500个继电器，18800个电子管，占地170m2，重量重达30多吨，耗电150KW，造价48万美元。开机时让周围居民暂时停电。这台计算机每秒能完成5000次加法运算，400次乘法运算，比当时最快的计算工具快300倍，是继电器计算机的1000倍、手工计算的20万倍。用今天的标准看，它是那样的“笨拙”和“低级”，其功能远不如一只掌上可编程计算器，但它使科学家们从复杂的计算中解脱出来，它的诞生标志着人类进入了一个崭新的信息革命时代。</p>
 <h3 id="计算机的简史"><a href="#计算机的简史" class="headerlink" title="计算机的简史"></a>计算机的简史</h3><h4 id="第一代-电子管计算机（1946-1957）"><a href="#第一代-电子管计算机（1946-1957）" class="headerlink" title="第一代 电子管计算机（1946-1957）"></a>第一代 电子管计算机（1946-1957）</h4><p>这一阶段计算机的主要特征是采用电子管元件作基本器件，用光屏管或汞延时电路作存储器，输入与输出主要采用穿孔卡片或纸带，体积大、耗电量大、速度慢、存储容量小、可靠性差、维护困难且价格昂贵。在软件上，通常使用机器语言或者汇编语言，来编写应用程序。因此这一时代的计算机主要用于科学计算。这时的计算机的基本线路是采用电子管结构，程序从人工手编的机器指令程序，过渡到符号语言，第一代电子计算机是计算工具革命性发展的开始，它所采用的二进位制与程序存贮等基本技术思想，奠定了现代电子计算机技术基础。以冯·诺依曼为代表。</p>
 <h4 id="第二代-晶体管计算机（1957-1964）"><a href="#第二代-晶体管计算机（1957-1964）" class="headerlink" title="第二代 晶体管计算机（1957-1964）"></a>第二代 晶体管计算机（1957-1964）</h4><p>20世纪50年代中期，晶体管的出现使计算机生产技术得到了根本性的发展，由晶体管代替电子管作为计算机的基础器件，用磁芯或磁鼓作存储器，在整体性能上，比第一代计算机有了很大的提高。同时程序语言也相应的出现了，如Fortran，Cobol，Algo160等计算机高级语言。晶体管计算机被用于科学计算的同时，也开始在数据处理、过程控制方面得到应用。晶体管不仅能实现电子管的功能，又具有尺寸小、重量轻、寿命长、效率高、发热少、功耗低等优点。使用晶体管后，电子线路的结构大大改观，制造高速电子计算机就更容易实现了。</p>
 <h4 id="第三代-中小规模集成电路计算机（1964-1971）"><a href="#第三代-中小规模集成电路计算机（1964-1971）" class="headerlink" title="第三代 中小规模集成电路计算机（1964-1971）"></a>第三代 中小规模集成电路计算机（1964-1971）</h4><p>20世纪60年代中期，随着半导体工艺的发展，成功制造了集成电路。中小规模集成电路成为计算机的主要部件，主存储器也渐渐过渡到半导体存储器，使计算机的体积更小，大大降低了计算机计算时的功耗，由于减少了焊点和接插件，进一步提高了计算机的可靠性。在软件方面，有了标准化的程序设计语言和人机会话式的Basic语言，其应用领域也进一步扩大。</p>
@@ -675,114 +631,14 @@ P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="O-踩了N多坑总结出以下经验"><a href="#O-踩了N多坑总结出以下经验" class="headerlink" title="O 踩了N多坑总结出以下经验"></a>O 踩了N多坑总结出以下经验</h2><p><strong>一步一步绝对能成 mac+windows</strong></p>
-<h2 id="一-常见有三种博客搭建方案"><a href="#一-常见有三种博客搭建方案" class="headerlink" title="一 常见有三种博客搭建方案"></a>一 常见有三种博客搭建方案</h2><ul>
-<li><a href="https://zh-cn.wordpress.com/" target="_blank" rel="noopener">workpress</a></li>
-</ul>
-<blockquote>
-<p>一般需要独立域名(充钱)有广告，做许多东西需要升级至高级版(还是充钱)，手机版访问麻烦(所以我直接扔了那个博客)</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> + <a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a></li>
-</ul>
-<blockquote>
-<p>稍微麻烦一点 (其实是作者技术太挫)</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/48438858/54468954-e73dd380-47cc-11e9-8089-a1f910273b15.png" alt="C位当然要有配图"></p>
-<blockquote>
-<p>免费 简单 据说用的人还多 所以我选择这个</p>
-</blockquote>
-<h2 id="二-下面直接进入主题-👇-博客搭建"><a href="#二-下面直接进入主题-👇-博客搭建" class="headerlink" title="二 下面直接进入主题 👇 博客搭建"></a>二 下面直接进入主题 👇 博客搭建</h2><h4 id="首先我们需要一个GitHub账号和一个项目库"><a href="#首先我们需要一个GitHub账号和一个项目库" class="headerlink" title="首先我们需要一个GitHub账号和一个项目库"></a>首先我们需要一个<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>账号和一个项目库</h4><p>怎么创建账号就不用我说了，但是创建库的时候需要提到一个细节</p>
-<p>1 先点击这里创建</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54468995-6cc18380-47cd-11e9-8290-c0727beb3fa5.png" alt="点击创建项目"></p>
-<p>2 创建项目的是时候Repositoryname需要同Owner一样然后补齐github.io</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54469009-adb99800-47cd-11e9-8a87-7e05fd3b80e6.png" alt="设置仓库名"></p>
-<p>3 然后点击 Create repository创建就好</p>
-<h2 id="三-环境配置"><a href="#三-环境配置" class="headerlink" title="三 环境配置"></a>三 环境配置</h2><p><a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo</a>有着详细的安装使用介绍 下面是我的</p>
-<h3 id="先怼node-js"><a href="#先怼node-js" class="headerlink" title="先怼node,js"></a>先怼node,js</h3><p>mac: 去<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>官网，我下载了左边的那个 然后一路安装即可</p>
-<p>windows: <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>下载windows就可以<br>下载安装包，安装Node.js会包含环境变量及npm的安装，安装之后可以在命令行中输入node -v看看是否安装成功。</p>
-<p>如果 git bash 里报错了，就去环境变量里看看有没有 nodejs，没有的话需要把nodejs地址添加一下如果已经有了，重启电脑。</p>
-<h3 id="再怼git"><a href="#再怼git" class="headerlink" title="再怼git"></a>再怼git</h3><p>mac: <a href="https://www.git-scm.com/download/mac" target="_blank" rel="noopener">点击这里进入页面自动下载了</a></p>
-<p>windows: <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">点击这里进入页面直接下载了</a>记得git -v 查看是否安装成功失败了请参看其他详细git安装教程(我反正没失败过)</p>
-<h3 id="然后就可以安装Hexo了"><a href="#然后就可以安装Hexo了" class="headerlink" title="然后就可以安装Hexo了"></a>然后就可以安装Hexo了</h3><h4 id="mac"><a href="#mac" class="headerlink" title="mac:"></a>mac:</h4><p>  Node.js和Git都安装好后就可以安装Hexo了。</p>
-<p>  终端执行怼下命令： sudo npm install -g hexo</p>
-<p>  <em>如果需要输入密码就是Mac登录密码</em></p>
-<p>  这里就是一个大坑：Hexo官网上的安装命令是 npm install -g hexo-cli，多数教程也都是没有sudo然鹅直接怼就去就会报错权限，加sudo解决问题。</p>
-<h4 id="windows"><a href="#windows" class="headerlink" title="windows:"></a>windows:</h4><p>npm install -g hexo-cli</p>
-<h3 id="将你的git与GitHub绑定"><a href="#将你的git与GitHub绑定" class="headerlink" title="将你的git与GitHub绑定"></a>将你的git与GitHub绑定</h3><h4 id="由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址"><a href="#由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址" class="headerlink" title="由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址"></a>由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址</h4><p>git config –global user.name “你的GitHub用户名”</p>
-<p>git config –global user.email “你的GitHub注册邮箱”</p>
-<h4 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a>生成ssh密钥</h4><p>生成密钥 输入： ssh-keygen -t rsa -C “你的GitHub注册邮箱”<br>然后回车遇到y or n? 就y 继续回车</p>
-<p>mac: 先输入 cd ~</p>
-<p>然后就可以cd~/.ssh 里面会有id_rsa和rsa_rsa.pub两个文件</p>
-<p>vim rsa_rsa.pub复制里面的内容 没有vim的话vi应该有用vi rsa_rsa.pub</p>
-<p>windows:</p>
-<p>输入ls -a 查看所有文件 在输入cat.ssh\id_rsa.pub打开文件</p>
-<p>复制里面全部内容</p>
-<p>然后打开git设置(点击头像 seeings)</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54468999-7cd96300-47cd-11e9-912c-6876d0a52614.png" alt="配置新的ssh"></p>
-<p>然后粘贴你的密钥 Add SSH key保存</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54469020-c924a300-47cd-11e9-9bf0-aa23bca3afa0.png" alt="加入密钥保存"></p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h4 id="mac-1"><a href="#mac-1" class="headerlink" title="mac"></a>mac</h4><p>我们先找个地方创建一个文件夹这里会存放你的blog(博客)全部内容</p>
-<p>打开终端进入这个文件夹目录 blog是你的文件夹名称</p>
-<p>输入hexo init blog</p>
-<p>然后cd到blog文件夹下安装npm</p>
-<p>输入 npm install</p>
-<p>执行下面的命令开启hexo服务器</p>
-<p>输入 hexo s</p>
-<p>这个时候你可以看见一个这样的博客页面了打开浏览器</p>
-<p>输入 localhost:4000</p>
-<h4 id="接下来就是部署了"><a href="#接下来就是部署了" class="headerlink" title="接下来就是部署了"></a>接下来就是部署了</h4><p>首先介绍一下两个配置文件他们都叫_config.yml</p>
-<p>不同的是blog里面的_config.yml是站点配置文件</p>
-<p>而我们themes文件夹每个主题文件里也有一个_config.yml他是配置主题的文件</p>
-<p>我们打开blog里面的_config.yml 输入vim _config.yml</p>
-<p>翻到最下面改成这样没有就加上</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54469024-d477ce80-47cd-11e9-91af-e0396018de5f.png" alt="这样"></p>
-<p>你的地址在这里</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54469027-e22d5400-47cd-11e9-8287-602cc4544dc8.png" alt="在这里"></p>
-<p>这里需要注意坑二 每一个配置的 ： 后面要有一个空格！！！！<br>然后保存站点配置</p>
-<p>在blog文件夹目录里面执行一下生成静态页面命令</p>
-<p>输入 hexo g  (或是hexo generate)</p>
-<p>如果有报一下错误</p>
-<blockquote>
-<p>ERROR Local hexo not found in ~/blog</p>
-</blockquote>
-<blockquote>
-<p>ERROR Try runing: ‘npm install hexo –save’</p>
-</blockquote>
-<p>就执行 输入 npm install hexo –save<br>没有报错请不要执行或者忽略</p>
-<p>执行配置命令</p>
-<p>hexo d  (或是 hexo deploy)</p>
-<p>这里特别注意 我就是载在这里！ 若执行命令hexo deploy仍然报错：无法连接git或找不到git，则执行如下命令来安装一个叫hexo-deployer-git东西</p>
-<p>输入 npm install hexo-deployer-git –save</p>
-<p>执行 hexo g<br>执行 hexo d</p>
-<p>倘若提示输入密码输入即可没有执行忽略</p>
-<p>这时候就可以访问你的博客了   https://写你的.github.io/</p>
-<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>终端cd到blog文件夹目录 </p>
-<p>输入hexo new “文件名” 新建文章</p>
-<h4 id="发布部署"><a href="#发布部署" class="headerlink" title="发布部署"></a>发布部署</h4><p>然后 hexo g (生成静态页面)<br>在然后 hexo d (部署到github)</p>
-<p>如果出现了花里胡哨的错误可以在生成之前</p>
-<p>输入 hexo clean</p>
-<p>ps: 每次更新都会等那么一会</p>
-<h2 id="写下更换主题吧"><a href="#写下更换主题吧" class="headerlink" title="写下更换主题吧"></a>写下更换主题吧</h2><p>在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>里找到一款主题我的是yilia</p>
-<p>下载这个主题</p>
-<p>输入 git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-<p><img src="https://user-images.githubusercontent.com/48438858/54469036-f1ac9d00-47cd-11e9-8484-ecb7ef4a6f84.png" alt="这里会多一个"></p>
-<blockquote>
-<p><code></code><br>打开站点的_config.yml配置文件，将里面的 theme: landscape 改为 theme: yilia.</p>
-</blockquote>
-<p><img src="https://user-images.githubusercontent.com/48438858/54469042-fbce9b80-47cd-11e9-95d9-cc2677a64899.png" alt="改成你主题的名字"></p>
-<p>然后还是 hexo g 和 hexo d</p>
-<p>最后访问下你的博客吧这里在看看扔出我的</p>
-<p><a href="https://zpangjie.github.io/" target="_blank" rel="noopener">张胖杰的博客</a></p>
-<p>ps: 每次更新都会等那么一会!!!!!!!!</p>
-
+        <h2 id="O-踩了N多坑总结出以下经验"><a href="#O-踩了N多坑总结出以下经验" class="headerlink" title="O 踩了N多坑总结出以下经验"></a>O 踩了N多坑总结出以下经验</h2><p><strong>一步一步绝对能成 mac+windows</strong><br>
+        
+          <a class="article-more-a" href="/2019/03/14/blog/#more">more >></a>
+        
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
