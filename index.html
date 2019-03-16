@@ -179,7 +179,297 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-jsjfzs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Vi和Vim的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Vi和Vim的简单使用"><a href="#Vi和Vim的简单使用" class="headerlink" title="Vi和Vim的简单使用"></a>Vi和Vim的简单使用</h1><p>vi是是类unix系统下最受欢迎的两个编辑器之一，另一个是Emacs。vi的作者是Bill Joy，Vim可以看成是vi的升级版，他完全兼容vi，它的作者是Bram Moolenaar。vi/vim的学习曲线比较陡峭，不过一旦熟练掌握后，可以大大提高编辑效率。</p>
+<p>下面我们简单学习一下Vim的使用：</p>
+<h4 id="vi-vim的模式"><a href="#vi-vim的模式" class="headerlink" title="vi/vim的模式"></a>vi/vim的模式</h4><p><strong>1. 命令模式(浏览模式)</strong></p>
+<p>控制屏幕光标的移动，删除字符、字或行等。</p>
+<p><strong>2. 插入模式</strong></p>
+<p>只有在Insert mode下，才可以做文字输入，按[<code>ESC</code>]键可回到命令行模式</p>
+<p><strong>3. 底行模式</strong></p>
+<p>可以保存文件、退出vi、设置vi、查找等功能</p>
+<h4 id="部分功能使用说明"><a href="#部分功能使用说明" class="headerlink" title="部分功能使用说明"></a>部分功能使用说明</h4><p>一、打开文件、保存、关闭文件(“命令模式”下使用)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi filename //打开filename文件 </span><br><span class="line">:w          //保存文件 </span><br><span class="line">:w 1.txt    //保存至1.txt文件 </span><br><span class="line">:q          //退出编辑器 </span><br><span class="line">:q!         //退出编辑器，且不保存 </span><br><span class="line">:wq         //退出编辑器，且保存文件</span><br><span class="line">:x          //保存内容并退出</span><br></pre></td></tr></table></figure></p>
+<p>二、插入文本或行(在“命令模式”下使用，执行下面命令后将进入“插入模式”，按ESC键可退出“插入模式”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a    //在当前光标位置的右边添加文本 </span><br><span class="line">i    //在当前光标位置的左边添加文本 </span><br><span class="line">A    //在当前行的末尾位置添加文本 </span><br><span class="line">I    //在当前行的开始处添加文本(非空字符的行首) </span><br><span class="line">O    //在当前行的上面新建一行 </span><br><span class="line">o    //在当前行的下面新建一行 </span><br><span class="line">R    //替换(覆盖)当前光标位置及后面的若干文本 </span><br><span class="line">J    //合并光标所在行及下一行为一行(依然在命令模式)</span><br></pre></td></tr></table></figure></p>
+<p>三、移动光标(“命令模式”下使用) </p>
+<p>1、使用上下左右方向键 </p>
+<p>2、命令模式下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    h   //向左</span><br><span class="line">    j   //向下 </span><br><span class="line">    k   //向上</span><br><span class="line">    l   //向右 </span><br><span class="line">    空格键 //向右</span><br><span class="line">    Backspace  //向左</span><br><span class="line">    Enter  //移动到下一行首</span><br><span class="line">    -  //移动到上一行首</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">四、删除、恢复字符或行(“命令模式”下使用)</span><br></pre></td></tr></table></figure></p>
+<pre><code>x       //删除当前字符 
+nx      //删除从光标开始的n个字符 
+dd      //删除当前行 
+ndd     //向下删除当前行在内的n行 
+u       //撤销上一步操作
+ctrl+R  //反撤销，和u的功能相反
+U       //撤销对当前行的所有操作 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">五、搜索(“底行模式”下使用)</span><br></pre></td></tr></table></figure>
+<pre><code>/str    //向光标下搜索str字符串 
+?str    //向光标上搜索str字符串 
+n       //向下搜索前一个搜素动作 
+N       //向上搜索前一个搜索动作 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">六、跳至指定行(“命令模式”下使用)</span><br></pre></td></tr></table></figure>
+<pre><code>n+        //向下跳n行 
+n-        //向上跳n行 
+nG        //跳到行号为n的行 
+G         //跳至文件的底部 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">七、设置行号(“底行模式”下使用)</span><br></pre></td></tr></table></figure>
+<pre><code>:set  nu     //显示行号 
+:set nonu    //取消显示行号 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">八、复制、粘贴(“命令模式”下使用)</span><br></pre></td></tr></table></figure>
+<pre><code>yy    //将当前行复制到粘贴板缓冲区，也可以用 &quot;ayy 复制，&quot;a 为粘贴板缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。 
+nyy   //将当前行向下n行复制到粘贴板缓冲区，也可以用 &quot;anyy 复制，&quot;a 为粘贴板缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。 
+yw    //复制从光标开始到词尾的字符。 
+nyw   //复制从光标开始的n个单词。 
+y^    //复制从光标到行首的内容。
+y$    //复制从光标到行尾的内容。 
+p     //粘贴剪切板里的内容在光标后，如果使用了前面的自定义缓冲区，建议使用&quot;ap 进行粘贴。 
+P     //粘贴剪切板里的内容在光标前，如果使用了前面的自定义缓冲区，建议使用&quot;aP 进行粘贴。 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">九、替换(“命令模式”下使用)</span><br></pre></td></tr></table></figure>
+<pre><code>:s/old/new          //用new替换行中首次出现的old 
+:s/old/new/g        //用new替换行中所有的old 
+:n,m s/old/new/g    //用new替换从n到m行里所有的old 
+:%s/old/new/g       //用new替换当前文件里所有的old 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">十、编辑其他文件</span><br></pre></td></tr></table></figure>
+<pre><code>:e otherfilename    //新建一个文件名为otherfilename的文件。
+</code></pre><p><code>`</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/16/Vi和Vim的简单使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux初探"><a href="#Linux初探" class="headerlink" title="Linux初探"></a>Linux初探</h1><h2 id="超级管理员"><a href="#超级管理员" class="headerlink" title="超级管理员"></a>超级管理员</h2><p>CentOS/RedHat系统的超级管理员账号为：root</p>
+<h2 id="开胃小菜"><a href="#开胃小菜" class="headerlink" title="开胃小菜"></a>开胃小菜</h2><p>不懂Linux控制台命令，相当于不懂Linux，因此我们要好好学习。先看几个开胃小菜，打开控制台。</p>
+<h4 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//方法1</span><br><span class="line">shutdown -h now</span><br><span class="line">//方法2</span><br><span class="line">poweroff</span><br><span class="line">//方法3</span><br><span class="line">halt</span><br></pre></td></tr></table></figure>
+<h4 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//方法1</span><br><span class="line">reboot</span><br><span class="line">//方法2</span><br><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure>
+<h4 id="注销登录"><a href="#注销登录" class="headerlink" title="注销登录"></a>注销登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logout</span><br></pre></td></tr></table></figure>
+<p>整完了几个开胃小菜，我们发现，命令用起来很爽，只用在键盘上敲几下就能完成以前我们使用各种鼠标+键盘一起配合才能完成的操作。其实我们可以这样理解：原来的图形界面化的操作其实是操作系统通过收集我们的鼠标+键盘操作的信息，然后分析出我们的意图，然后自动的运行了命令，我们现在是直接运行命令，省掉了前面的操作。</p>
+<h2 id="命令初探"><a href="#命令初探" class="headerlink" title="命令初探"></a>命令初探</h2><h3 id="Linux命令格式："><a href="#Linux命令格式：" class="headerlink" title="Linux命令格式："></a>Linux命令格式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令名称  [选项]  [参数]</span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<blockquote>
+<ol>
+<li>“命令名称”为必须项，“选项”和“参数”为可选的，“命令名称”、“选项”、“参数”这三项中间必须间隔至少一个空格。</li>
+<li>“选项”和“参数”均可以有多个，多个可以分开写，也可以合并写在一起。</li>
+<li>“选项”和“参数”如果同时存在，“选项”一般在“参数”前面。</li>
+<li>“选项”前面大多数时候会以“-”开头，多个“选项”时大多数时候不分先后顺序。</li>
+<li>有的“选项”可能要求自己的“参数”，比如：<code>mysql -u root -h 192.168.1.10</code>。</li>
+</ol>
+</blockquote>
+<p>当然，Linux目前拥有上万个命令，每个命令又有可能有很多“选项”和“参数”，使用组合非常的多，因此我们没有必要把所有的命令的具体使用全部记着，只要把常用的命令以及其选项怎么使用记着就行了，至于没记住的，我们完全可以随用随查，怎么查呢？有三种方式：</p>
+<h4 id="1-使用man命令"><a href="#1-使用man命令" class="headerlink" title="1. 使用man命令"></a>1. 使用<code>man</code>命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man 你要查的命令名</span><br></pre></td></tr></table></figure>
+<p>比如：<code>man ls</code> 查询一下<code>ls</code>命令的使用方式。</p>
+<h4 id="2-使用命令的-h或者-help选项"><a href="#2-使用命令的-h或者-help选项" class="headerlink" title="2. 使用命令的--h或者--help选项"></a>2. 使用命令的<code>--h</code>或者<code>--help</code>选项</h4><p>对于有些命令，其自带的有帮助文档，可以使用它。</p>
+<p>比如：<code>tar --h</code></p>
+<p>不过有些命令并不带这些，因此适用范围较小。</p>
+<h4 id="3-去相关网上查找或者去文档中"><a href="#3-去相关网上查找或者去文档中" class="headerlink" title="3. 去相关网上查找或者去文档中"></a>3. 去相关网上查找或者去文档中</h4><p>比如我们可以去：<a href="http://man.linuxde.net/" target="_blank" rel="noopener">http://man.linuxde.net/</a></p>
+<h3 id="再多来一点命令"><a href="#再多来一点命令" class="headerlink" title="再多来一点命令"></a>再多来一点命令</h3><h4 id="查看目录内容命令：ls"><a href="#查看目录内容命令：ls" class="headerlink" title="查看目录内容命令：ls"></a>查看目录内容命令：<code>ls</code></h4><p>ls命令可以查看当前目录下的文件和目录，使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls   [选项]   [目录(默认当前目录)]</span><br></pre></td></tr></table></figure>
+<p>它有很多选项，常用的有以下几个：</p>
+<blockquote>
+<p>-a 显示所有文件，包含隐藏文件</p>
+<p>-l 显示文件的详细信息</p>
+<p>-t 按照时间排序显示文件</p>
+<p>-h 以1024为单位显示文件信息</p>
+<p>-S 按照文件大小排序</p>
+</blockquote>
+<h4 id="创建文件：touch"><a href="#创建文件：touch" class="headerlink" title="创建文件：touch"></a>创建文件：<code>touch</code></h4><p>使用touch可以创建一个文件，使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch  文件名</span><br></pre></td></tr></table></figure>
+<h4 id="查看内容命令：cat"><a href="#查看内容命令：cat" class="headerlink" title="查看内容命令：cat"></a>查看内容命令：<code>cat</code></h4><p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat 文件名</span><br></pre></td></tr></table></figure>
+<p>cat命令只能查看，不能修改。</p>
+<h4 id="带分页的查看命令：-more"><a href="#带分页的查看命令：-more" class="headerlink" title="带分页的查看命令： more"></a>带分页的查看命令： <code>more</code></h4><p>如果我们查看很长的内容页面，用cat就比较不妥，不过我们可以使用more命令。使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more 文件名</span><br></pre></td></tr></table></figure>
+<p>more命令会自动给我们进行分页，我们可以使用<code>ctrl+f</code>或者<code>空格键</code>进行“下一页”切换；使用<code>ctrl+b</code>进行“上一页”切换。</p>
+<p>如果需要更强大的功能，可以使用<code>less</code>命令，大家可以私下查一下资料。</p>
+<h4 id="管道命令："><a href="#管道命令：" class="headerlink" title="管道命令：|"></a>管道命令：<code>|</code></h4><h5 id="输出重定向：-gt-、-gt-gt"><a href="#输出重定向：-gt-、-gt-gt" class="headerlink" title="输出重定向：&gt; 、&gt;&gt;"></a>输出重定向：<code>&gt;</code> 、<code>&gt;&gt;</code></h5><p>要学习管道，就要涉及到linux的“输出重定向”问题，所谓输出重定向是指，任何操作，如果有输出结果，它的输出结果都有默认的输出方向，比如<code>ls</code> 、<code>more</code>等命令的默认输出位置为显示屏，不过我们在需要的时候可以手动的在内容向默认输出方向前去修改输出方向。</p>
+<blockquote>
+<p>> :将输出的内容写入到一个地方（覆盖）。如：ls -al > 1.txt</p>
+<p>>>:将文件的内容写入到一个地方（追加）。如：ls -al >> 1.txt</p>
+</blockquote>
+<h5 id="管道："><a href="#管道：" class="headerlink" title="管道："></a>管道：</h5><p>管道命令即是利用了“输出重定向”这个特性，所谓管道就是指：将“管道符”前的命令结果输出重定向到“管道符”后面的命令，交给后面的命令进行处理。<br>比如：<code>ls -l /etc | more</code></p>
+<h4 id="文本搜索命令：grep"><a href="#文本搜索命令：grep" class="headerlink" title="文本搜索命令：grep"></a>文本搜索命令：<code>grep</code></h4><p><code>grep</code>命令是linux下强大的文本搜索命令，可以在文本中搜索关键词。使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 搜索的内容 被搜索的文件名</span><br></pre></td></tr></table></figure>
+<p>如： <code>grep &#39;attr&#39; install.log</code></p>
+<p>如果需要显示在第几行，可以在命令中使用-n选项，如：<code>grep -n &#39;attr&#39; install.log</code></p>
+<p>grep命令可以支持在多个文件中查找，如在当前目录下的所有文件中搜索：<code>grep -n &#39;attr&#39; ./*</code></p>
+<p>当然grep也支持正则匹配等其他复杂的操作，这里就不多讲了，交给大家自己去研究吧。</p>
+<h4 id="查找文件命令：find"><a href="#查找文件命令：find" class="headerlink" title="查找文件命令：find"></a>查找文件命令：<code>find</code></h4><p>这里我们暂且先只讲一个用法，在一个目录中根据文件名查找文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find 要查找的目录 -name 要查找的文件名。</span><br></pre></td></tr></table></figure></p>
+<p>如：<code>find / -name install.log</code> 表示：在根目录下查找文件名为install.log的文件</p>
+<h4 id="查看-设置系统时间：date"><a href="#查看-设置系统时间：date" class="headerlink" title="查看/设置系统时间：date"></a>查看/设置系统时间：<code>date</code></h4><h5 id="查看系统时间："><a href="#查看系统时间：" class="headerlink" title="查看系统时间："></a>查看系统时间：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure>
+<p>如果需要以指定的格式显示日期，可以使用“+”开头的字符串格式化输出，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">date &quot;+%Y-%m-%d %H:%M:%S&quot;</span><br><span class="line">//带换行，带文字说明</span><br><span class="line">date &quot;+现在时刻：%n%Y-%m-%d %H:%I:%S&quot;</span><br><span class="line">//获取时间戳</span><br><span class="line">date &quot;+%s&quot;</span><br></pre></td></tr></table></figure>
+<p>格式化时各种字符代表的意义（并不需要重点记忆，记住常用的即可）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">%n : 下一行</span><br><span class="line">%t : 跳格</span><br><span class="line">%H : 小时(00-23)</span><br><span class="line">%I : 小时(01-12)</span><br><span class="line">%k : 小时(0-23)</span><br><span class="line">%l : 小时(1-12)</span><br><span class="line">%M : 分钟(00-59)</span><br><span class="line">%p : 显示本地 AM 或 PM</span><br><span class="line">%r : 直接显示时间 (12 小时制，格式为 hh:mm:ss [AP]M)</span><br><span class="line">%s : 从 1970 年 1 月 1 日 00:00:00 UTC 到目前为止的秒数</span><br><span class="line">%S : 秒(00-60)</span><br><span class="line">%T : 直接显示时间 (24 小时制)</span><br><span class="line">%X : 相当于 %H:%M:%S</span><br><span class="line">%Z : 显示时区</span><br><span class="line">%a : 星期几 (Sun-Sat)</span><br><span class="line">%A : 星期几 (Sunday-Saturday)</span><br><span class="line">%b : 月份 (Jan-Dec)</span><br><span class="line">%B : 月份 (January-December)</span><br><span class="line">%c : 直接显示日期与时间</span><br><span class="line">%d : 日 (01-31)</span><br><span class="line">%D : 直接显示日期 (mm/dd/yy)</span><br><span class="line">%h : 同 %b</span><br><span class="line">%j : 一年中的第几天 (001-366)</span><br><span class="line">%m : 月份 (01-12)</span><br><span class="line">%U : 一年中的第几周 (00-53) (以 Sunday 为一周的第一天的情形)</span><br><span class="line">%w : 一周中的第几天 (0-6)</span><br><span class="line">%W : 一年中的第几周 (00-53) (以 Monday 为一周的第一天的情形)</span><br><span class="line">%x : 直接显示日期 (mm/dd/yy)</span><br><span class="line">%y : 年份的最后两位数字 (00.99)</span><br><span class="line">%Y : 完整年份 (0000-9999)</span><br></pre></td></tr></table></figure></p>
+<h5 id="使用-s属性设置系统时间"><a href="#使用-s属性设置系统时间" class="headerlink" title="使用-s属性设置系统时间"></a>使用<code>-s</code>属性设置系统时间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s &quot;2017-09-07 09:51:04&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p><code>ctrl+c</code>：停止当前命令的执行</p>
+<p><code>ctrl+a</code>：将光标快速的切换到命令行最前端</p>
+<p><code>ctrl+e</code>：将光标快速的切换到命令行末端</p>
+<p><code>tab</code>：补全命令或者补全文件名/文件夹名，连按2次，会列出指定目录下指定开头字符的文件或者目录列表</p>
+<h2 id="启动等级（0，1，2，3，5，6）"><a href="#启动等级（0，1，2，3，5，6）" class="headerlink" title="启动等级（0，1，2，3，5，6）"></a>启动等级（0，1，2，3，5，6）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">init 0:关机</span><br><span class="line">init 1：单用户形式，只root进行维护</span><br><span class="line">init 2：多用户，不能使用net file system，即无网络服务</span><br><span class="line">init 3：完全多用户，目前服务器使用最多的模式</span><br><span class="line">init 5：图形化</span><br><span class="line">init 6：重启</span><br></pre></td></tr></table></figure>
+<p>注：init 4：目前系统未使用，空位</p>
+<p>以上命令直接在终端中运行即可，对于启动级别的设置，也可以编辑/etc/inittab进行设置。</p>
+<p>如果启动等级设置成6，那么机器将陷入无限重启状态。怎么解决呢？</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>1.在系统重启的跑秒过程中按键：“e”</p>
+<p><img src="http://note.youdao.com/yws/res/51///note.youdao.com/src/WEBRESOURCEfe50f5fe0fb94c9d15a04734526e9578" alt="1.png"></p>
+<p>2.进入GRUB界面后，使用键盘的上下键，切换到第二行，再按一个“e”，（根据系统情况，可能进GRUB页面并没有如下列表，但是要看最下面的说明，根据说明进行操作）</p>
+<p><mark>注意：这一步可能看到的并不是如下图有3行的样子，可能只有1行，这个时候只需要看方框内的文字说明，按照文字说明操作即可，步骤和下面的基本一致</mark></p>
+<p><img src="http://note.youdao.com/yws/res/48///note.youdao.com/src/WEBRESOURCEe5cd79225a9fc8f5077e86fdce305dc0" alt="2.png"></p>
+<p>3.进入新页面的后，在最后打个空格并输入1，表示使用 “单用户级别” 进行启动（只有启动级别为1时，系统在启动的时候不会去读/etc/inittab）。</p>
+<p><img src="http://note.youdao.com/yws/res/55///note.youdao.com/src/WEBRESOURCE05f4e92ca5882c71f4c6ebe21ddbf6a9" alt="3.png"></p>
+<p>4.然后回到上一级页面，按键“b”进行重启</p>
+<p>5.重启后修改/etc/inittab里面的内容即可</p>
+<p>注：同样的方法，我们也可以修改用户的密码，甚至是root的密码。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/16/Linux命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux简介下载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux的简介"><a href="#Linux的简介" class="headerlink" title="Linux的简介"></a>Linux的简介</h1><h3 id="Linux的特点"><a href="#Linux的特点" class="headerlink" title="Linux的特点"></a>Linux的特点</h3><ol>
+<li>免费/开源</li>
+<li>支持多用户、多线程</li>
+<li>安全性好</li>
+<li>对内存和文件管理优秀，最小的linux只需要几兆就能跑起来</li>
+</ol>
+<h3 id="redhat和CentOS的关系"><a href="#redhat和CentOS的关系" class="headerlink" title="redhat和CentOS的关系"></a>redhat和CentOS的关系</h3><p>RHEL（Red Hat Enterprise Linux），即是红帽企业版Linux，但是构建redhat的好多软件包括系统内核都是基于GPL协议的，（GPL协议的基本要求：自由软件允许用户自由拷贝、修改和销售，但是对其源代码的任何修改都必须向所有用户公开。），因此RHEL在发布的时候也要遵循这个协议，在发布的时候需要发布源代码。CentOS 就是将 RHEL 发行的源代码重新编译一次，只是 REDHAT 是商标，所以必须在新的发行版里将 REDHAT 的商标去掉。CentOS 可以得到 RHEL 的所有功能，甚至是更好的软件。但 CentOS 并不向用户提供商业支持，当然也不负上任何商业责任。</p>
+<h3 id="Linux的下载"><a href="#Linux的下载" class="headerlink" title="Linux的下载"></a>Linux的下载</h3><p>下载软件肯定是去官网，不过这些软件好些都是国外的，下载速度比较慢，因此我们常常使用国内的开源镜像进行下载，国内的开源镜像不少，下面收集几个比较稳定的列出来：</p>
+<blockquote>
+<p>阿里云开源镜像：<a href="http://mirrors.aliyun.com/" target="_blank" rel="noopener">http://mirrors.aliyun.com/</a></p>
+<p>搜狐开源镜像：<a href="http://mirrors.sohu.com/" target="_blank" rel="noopener">http://mirrors.sohu.com/</a></p>
+<p>网易开源镜像：<a href="http://mirrors.163.com/" target="_blank" rel="noopener">http://mirrors.163.com/</a></p>
+<p>中科大开源镜像：<a href="http://mirrors.aliyun.com/" target="_blank" rel="noopener">http://mirrors.aliyun.com/</a></p>
+<p>清华大学开源镜像：<a href="https://mirror.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/</a></p>
+<p>浙江大学开源镜像：<a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/</a></p>
+<p>华中科技大学开源镜像：<a href="http://mirror.hust.edu.cn/" target="_blank" rel="noopener">http://mirror.hust.edu.cn/</a></p>
+<p>南阳理工学院开源镜像：<a href="http://mirror.nyist.edu.cn/" target="_blank" rel="noopener">http://mirror.nyist.edu.cn/</a></p>
+<p>中国电信天翼云开源镜像：<a href="http://mirrors.ctyun.cn/" target="_blank" rel="noopener">http://mirrors.ctyun.cn/</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/16/linux简介下载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-计算机发展史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -231,7 +521,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/16/jsjfzs/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/16/计算机发展史/">展开全文 >></a>
         </p>
       
 
