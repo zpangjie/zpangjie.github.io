@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 王小质的博客</title>
+  <title>mysql用户权限管理 | 王小质的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编程 摄影">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王小质的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
+<meta name="keywords" content="计算机&amp;编程,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql用户权限管理">
+<meta property="og:url" content="http://yoursite.com/2019/03/18/mysql用户权限管理/index.html">
 <meta property="og:site_name" content="王小质的博客">
-<meta property="og:description" content="编程 摄影">
+<meta property="og:description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-18T02:33:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王小质的博客">
-<meta name="twitter:description" content="编程 摄影">
+<meta name="twitter:title" content="mysql用户权限管理">
+<meta name="twitter:description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
   
     <link rel="alternative" href="/atom.xml" title="王小质的博客" type="application/atom+xml">
   
@@ -177,82 +179,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql用户权限管理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/为虚拟机配置静态ip/" class="archive-article-date">
-  	<time datetime="2019-03-18T02:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/为虚拟机配置静态ip/">为虚拟机配置静态ip(CentOS 6.5)</a>
+    <h1 class="article-title" itemprop="name">
+      mysql用户权限管理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">配置</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/mysql用户权限管理/" class="archive-article-date">
+        
+        <a href="/2019/03/18/mysql用户权限管理/" class="archive-article-date">
   	<time datetime="2019-03-18T02:21:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/mysql用户权限管理/">mysql用户权限管理</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一权限的两阶段验证"><a href="#一权限的两阶段验证" class="headerlink" title="一权限的两阶段验证"></a>一权限的两阶段验证</h3><blockquote>
+<p>服务器检测是否允许连接用户名密码地址(主机)</p>
+</blockquote>
+<blockquote>
+<p>检测请求有没有权限实施</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="二-权限列表"><a href="#二-权限列表" class="headerlink" title="二 权限列表"></a>二 权限列表</h3><table>
+<thead>
+<tr>
+<th>权限</th>
+<th>权限级别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>数据库，表或索引</td>
+<td>创建数据库，表或索引权限</td>
+</tr>
+<tr>
+<td>drop</td>
+<td>数据库或表</td>
+<td>删除数据库或表权限</td>
+</tr>
+<tr>
+<td>grant option</td>
+<td>数据库、表或保存的程序</td>
+<td>赋予权限选项</td>
+</tr>
+<tr>
+<td>references</td>
+<td>数据库或表</td>
+<td>外键权限</td>
+</tr>
+<tr>
+<td>alter</td>
+<td>表</td>
+<td>更改表，比如添加字段、索引、修改字段等</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>表</td>
+<td>删除数据权限</td>
+</tr>
+<tr>
+<td>index</td>
+<td>表</td>
+<td>索引权限</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>表</td>
+<td>插入权限</td>
+</tr>
+<tr>
+<td>select</td>
+<td>表</td>
+<td>查询权限</td>
+</tr>
+<tr>
+<td>update</td>
+<td>表</td>
+<td>更新权限</td>
+</tr>
+<tr>
+<td>create view</td>
+<td>视图</td>
+<td>创建视图权限</td>
+</tr>
+<tr>
+<td>show view</td>
+<td>视图</td>
+<td>查看视图权限</td>
+</tr>
+<tr>
+<td>alter routine</td>
+<td>存储过程</td>
+<td>更改存储过程权限</td>
+</tr>
+<tr>
+<td>create routine</td>
+<td>存储过程</td>
+<td>创建存储过程权限</td>
+</tr>
+<tr>
+<td>execute</td>
+<td>存储过程</td>
+<td>执行存储过程权限</td>
+</tr>
+<tr>
+<td>file</td>
+<td>服务器主机上的文件访问</td>
+<td>文件访问权限create temporary tables</td>
+<td>服务器管理</td>
+<td>创建临时表权限lock tables</td>
+<td>服务器管理</td>
+<td>锁表权限create user</td>
+<td>服务器管理</td>
+<td>创建用户权限proccess</td>
+<td>服务器管理</td>
+<td>查看进程权限reload</td>
+<td>服务器管理</td>
+<td>执行flush-hosts, flush-logs, flush-privileges, flush-status, flush-tables, flush-threads, refresh, reload等命令的权限replication client</td>
+<td>服务器管理</td>
+<td>复制权限replication slave</td>
+<td>服务器管理</td>
+<td>复制权限show databases</td>
+<td>服务器管理</td>
+<td>查看数据库权shutdown服务器管理关闭数据库权super服务器管理执行kill线程权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mysql用户权限管理操作"><a href="#mysql用户权限管理操作" class="headerlink" title="mysql用户权限管理操作"></a>mysql用户权限管理操作</h3><h4 id="1权限查询"><a href="#1权限查询" class="headerlink" title="1权限查询"></a>1权限查询</h4><blockquote>
+<p>1查看所有用户及其权限：select*from mysql.user\G</p>
+</blockquote>
+<blockquote>
+<p>2查看当前mysql用户权限：show grants</p>
+</blockquote>
+<blockquote>
+<p>3查看某个用户的权限：show grants for 用户名@主机</p>
+</blockquote>
+<h4 id="2mysql用户创建"><a href="#2mysql用户创建" class="headerlink" title="2mysql用户创建"></a>2mysql用户创建</h4><blockquote>
+<p>1使用create user命令创建：create user ‘用户名‘@’主机’ identified by ‘密码’</p>
+</blockquote>
+<blockquote>
+<p>2直接向数据表mysql.user中插入一条用户记录</p>
+</blockquote>
+<h4 id="3删除用户"><a href="#3删除用户" class="headerlink" title="3删除用户"></a>3删除用户</h4><blockquote>
+<p>drop user ‘用户名‘@’主机’</p>
+</blockquote>
+<h4 id="4给予权限"><a href="#4给予权限" class="headerlink" title="4给予权限"></a>4给予权限</h4><p>刚创建的用户一般是没有权限的使用grant指令进行权限的授予。</p>
+<p>grant指令完整格式：</p>
+<p>grant 权限列表 on 数据库名.数据表名 to ‘用户名’@’主机’ identified by ‘密码’ with grant option;</p>
+<h4 id="5账户重命名"><a href="#5账户重命名" class="headerlink" title="5账户重命名"></a>5账户重命名</h4><blockquote>
+<p>rename user ‘旧用户名‘@’旧主机’ to ‘新用户名‘@’新主机’;</p>
+</blockquote>
+<h4 id="6用户密码修改"><a href="#6用户密码修改" class="headerlink" title="6用户密码修改"></a>6用户密码修改</h4><blockquote>
+<p>1 使用set password命令 set password for ‘用户名‘@’主机’ = password(‘新密码’);</p>
+</blockquote>
+<blockquote>
+<p>2 修改mysql.user表中的password（或authentication_string）字段。</p>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你啊~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -268,301 +387,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/18/mysql用户权限管理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/linux卸载软件不卸载依赖/" class="archive-article-date">
-  	<time datetime="2019-03-18T01:49:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/18/为虚拟机配置静态ip/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          为虚拟机配置静态ip(CentOS 6.5)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/18/linux卸载软件不卸载依赖/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux卸载软件不卸载依赖</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/linux卸载软件不卸载依赖/">linux卸载软件不卸载依赖</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/sequeI pro解决连接数据库10秒延迟/" class="archive-article-date">
-  	<time datetime="2019-03-18T00:32:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/sequeI pro解决连接数据库10秒延迟/">sequeI pro解决连接数据库10秒延迟</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解决问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/16/Vi和Vim的简单使用/" class="archive-article-date">
-  	<time datetime="2019-03-16T00:58:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/16/Vi和Vim的简单使用/">Vi和Vim的简单使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/16/Linux命令/" class="archive-article-date">
-  	<time datetime="2019-03-16T00:57:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/16/Linux命令/">Linux基本命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/16/linux简介下载/" class="archive-article-date">
-  	<time datetime="2019-03-16T00:57:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/16/linux简介下载/">Linux的简介(含下载地址)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/16/计算机发展史/" class="archive-article-date">
-  	<time datetime="2019-03-16T00:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/16/计算机发展史/">计算机以及操作系统的发展史</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计算机基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/14/blog/" class="archive-article-date">
-  	<time datetime="2019-03-14T08:34:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/blog/">用GitHub+hexo创建个博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -585,8 +518,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
