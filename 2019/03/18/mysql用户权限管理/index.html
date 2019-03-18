@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="王小质的博客">
 <meta property="og:description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-18T02:33:24.000Z">
+<meta property="og:updated_time" content="2019-03-18T02:41:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql用户权限管理">
 <meta name="twitter:description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
@@ -293,23 +293,54 @@
 <tr>
 <td>file</td>
 <td>服务器主机上的文件访问</td>
-<td>文件访问权限create temporary tables</td>
+<td>文件访问权限</td>
+</tr>
+<tr>
+<td>create temporary tables</td>
 <td>服务器管理</td>
 <td>创建临时表权限lock tables</td>
 <td>服务器管理</td>
-<td>锁表权限create user</td>
+<td>锁表权限</td>
+</tr>
+<tr>
+<td>create user</td>
 <td>服务器管理</td>
-<td>创建用户权限proccess</td>
+<td>创建用户权限</td>
+</tr>
+<tr>
+<td>proccess</td>
 <td>服务器管理</td>
-<td>查看进程权限reload</td>
+<td>查看进程权限</td>
+</tr>
+<tr>
+<td>reload</td>
 <td>服务器管理</td>
-<td>执行flush-hosts, flush-logs, flush-privileges, flush-status, flush-tables, flush-threads, refresh, reload等命令的权限replication client</td>
+<td>执行flush-hosts, flush-logs, flush-privileges, flush-status, flush-tables, flush-threads, refresh, reload等命令的权限</td>
+</tr>
+<tr>
+<td>replication client</td>
 <td>服务器管理</td>
-<td>复制权限replication slave</td>
+<td>复制权限</td>
+</tr>
+<tr>
+<td>replication slave</td>
 <td>服务器管理</td>
-<td>复制权限show databases</td>
+<td>复制权限</td>
+</tr>
+<tr>
+<td>show databases</td>
 <td>服务器管理</td>
-<td>查看数据库权shutdown服务器管理关闭数据库权super服务器管理执行kill线程权限</td>
+<td>查看数据库权限</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td>服务器管理</td>
+<td>关闭数据库权限</td>
+</tr>
+<tr>
+<td>super</td>
+<td>服务器管理</td>
+<td>执行kill线程权限</td>
 </tr>
 </tbody>
 </table>
