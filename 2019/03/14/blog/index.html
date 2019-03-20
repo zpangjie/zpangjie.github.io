@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="欢迎来到王小质的博客">
+
+
+
+<meta name="description" content="O 踩了N多坑总结出以下经验一步一步绝对能成 mac+windows">
+<meta name="keywords" content="计算机&amp;编程,博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用GitHub+hexo创建个博客">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/blog/index.html">
+<meta property="og:site_name" content="王小质的博客">
+<meta property="og:description" content="O 踩了N多坑总结出以下经验一步一步绝对能成 mac+windows">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54468954-e73dd380-47cc-11e9-8089-a1f910273b15.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54468995-6cc18380-47cd-11e9-8290-c0727beb3fa5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54469009-adb99800-47cd-11e9-8a87-7e05fd3b80e6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54468999-7cd96300-47cd-11e9-912c-6876d0a52614.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54469020-c924a300-47cd-11e9-9bf0-aa23bca3afa0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54469024-d477ce80-47cd-11e9-91af-e0396018de5f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54469027-e22d5400-47cd-11e9-8287-602cc4544dc8.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54469036-f1ac9d00-47cd-11e9-8484-ecb7ef4a6f84.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48438858/54469042-fbce9b80-47cd-11e9-95d9-cc2677a64899.png">
+<meta property="og:updated_time" content="2019-03-18T02:34:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用GitHub+hexo创建个博客">
+<meta name="twitter:description" content="O 踩了N多坑总结出以下经验一步一步绝对能成 mac+windows">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48438858/54468954-e73dd380-47cc-11e9-8089-a1f910273b15.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="王小质的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/myimg/wln.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>用GitHub+hexo创建个博客 | 王小质的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/myimg/wln.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">欢迎来到王小质的博客</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">萌妹于我如浮云</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/">编程&amp;计算机</a></li>
+                        
+                            <li><a href="/">平面设计</a></li>
+                        
+                            <li><a href="/">小说&amp;诗</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:654815075@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/guai-xiao-zhi-72/activities" title="知乎"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/88840249ea0a" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解决问题/">解决问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机-编程/">计算机&编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">天空没有留下翅膀的痕迹&lt;br&gt;而我已飞过</div>
+                </section>
+                
+            </div>
+        </div>
+        <div>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=857606&auto=1&height=66"></iframe>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">欢迎来到王小质的博客</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/myimg/wln.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">欢迎来到王小质的博客</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">萌妹于我如浮云</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/">编程&amp;计算机</a></li>
+                
+                    <li><a href="/">平面设计</a></li>
+                
+                    <li><a href="/">小说&amp;诗</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:654815075@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/guai-xiao-zhi-72/activities" title="知乎"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/88840249ea0a" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/14/blog/" class="article-date">
+      <time datetime="2019-03-14T08:34:20.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用GitHub+hexo创建个博客
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机-编程/">计算机&编程</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="O-踩了N多坑总结出以下经验"><a href="#O-踩了N多坑总结出以下经验" class="headerlink" title="O 踩了N多坑总结出以下经验"></a>O 踩了N多坑总结出以下经验</h2><p><strong>一步一步绝对能成 mac+windows</strong><br><a id="more"></a></p>
+<h2 id="一-常见有三种博客搭建方案"><a href="#一-常见有三种博客搭建方案" class="headerlink" title="一 常见有三种博客搭建方案"></a>一 常见有三种博客搭建方案</h2><ul>
+<li><a href="https://zh-cn.wordpress.com/" target="_blank" rel="noopener">workpress</a></li>
+</ul>
+<blockquote>
+<p>一般需要独立域名(充钱)有广告，做许多东西需要升级至高级版(还是充钱)，手机版访问麻烦(所以我直接扔了那个博客)</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> + <a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a></li>
+</ul>
+<blockquote>
+<p>稍微麻烦一点 (其实是作者技术太挫)</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> + <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/48438858/54468954-e73dd380-47cc-11e9-8089-a1f910273b15.png" alt="C位当然要有配图"></p>
+<blockquote>
+<p>免费 简单 据说用的人还多 所以我选择这个</p>
+</blockquote>
+<h2 id="二-下面直接进入主题-👇-博客搭建"><a href="#二-下面直接进入主题-👇-博客搭建" class="headerlink" title="二 下面直接进入主题 👇 博客搭建"></a>二 下面直接进入主题 👇 博客搭建</h2><h4 id="首先我们需要一个GitHub账号和一个项目库"><a href="#首先我们需要一个GitHub账号和一个项目库" class="headerlink" title="首先我们需要一个GitHub账号和一个项目库"></a>首先我们需要一个<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>账号和一个项目库</h4><p>怎么创建账号就不用我说了，但是创建库的时候需要提到一个细节</p>
+<p>1 先点击这里创建</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54468995-6cc18380-47cd-11e9-8290-c0727beb3fa5.png" alt="点击创建项目"></p>
+<p>2 创建项目的是时候Repositoryname需要同Owner一样然后补齐github.io</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54469009-adb99800-47cd-11e9-8a87-7e05fd3b80e6.png" alt="设置仓库名"></p>
+<p>3 然后点击 Create repository创建就好</p>
+<h2 id="三-环境配置"><a href="#三-环境配置" class="headerlink" title="三 环境配置"></a>三 环境配置</h2><p><a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo</a>有着详细的安装使用介绍 下面是我的</p>
+<h3 id="先怼node-js"><a href="#先怼node-js" class="headerlink" title="先怼node,js"></a>先怼node,js</h3><p>mac: 去<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>官网，我下载了左边的那个 然后一路安装即可</p>
+<p>windows: <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>下载windows就可以<br>下载安装包，安装Node.js会包含环境变量及npm的安装，安装之后可以在命令行中输入node -v看看是否安装成功。</p>
+<p>如果 git bash 里报错了，就去环境变量里看看有没有 nodejs，没有的话需要把nodejs地址添加一下如果已经有了，重启电脑。</p>
+<h3 id="再怼git"><a href="#再怼git" class="headerlink" title="再怼git"></a>再怼git</h3><p>mac: <a href="https://www.git-scm.com/download/mac" target="_blank" rel="noopener">点击这里进入页面自动下载了</a></p>
+<p>windows: <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">点击这里进入页面直接下载了</a>记得git -v 查看是否安装成功失败了请参看其他详细git安装教程(我反正没失败过)</p>
+<h3 id="然后就可以安装Hexo了"><a href="#然后就可以安装Hexo了" class="headerlink" title="然后就可以安装Hexo了"></a>然后就可以安装Hexo了</h3><h4 id="mac"><a href="#mac" class="headerlink" title="mac:"></a>mac:</h4><p>  Node.js和Git都安装好后就可以安装Hexo了。</p>
+<p>  终端执行怼下命令： sudo npm install -g hexo</p>
+<p>  <em>如果需要输入密码就是Mac登录密码</em></p>
+<p>  这里就是一个大坑：Hexo官网上的安装命令是 npm install -g hexo-cli，多数教程也都是没有sudo然鹅直接怼就去就会报错权限，加sudo解决问题。</p>
+<h4 id="windows"><a href="#windows" class="headerlink" title="windows:"></a>windows:</h4><p>npm install -g hexo-cli</p>
+<h3 id="将你的git与GitHub绑定"><a href="#将你的git与GitHub绑定" class="headerlink" title="将你的git与GitHub绑定"></a>将你的git与GitHub绑定</h3><h4 id="由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址"><a href="#由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址" class="headerlink" title="由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址"></a>由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址</h4><p>git config –global user.name “你的GitHub用户名”</p>
+<p>git config –global user.email “你的GitHub注册邮箱”</p>
+<h4 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a>生成ssh密钥</h4><p>生成密钥 输入： ssh-keygen -t rsa -C “你的GitHub注册邮箱”<br>然后回车遇到y or n? 就y 继续回车</p>
+<p>mac: 先输入 cd ~</p>
+<p>然后就可以cd~/.ssh 里面会有id_rsa和rsa_rsa.pub两个文件</p>
+<p>vim rsa_rsa.pub复制里面的内容 没有vim的话vi应该有用vi rsa_rsa.pub</p>
+<p>windows:</p>
+<p>输入ls -a 查看所有文件 在输入cat.ssh\id_rsa.pub打开文件</p>
+<p>复制里面全部内容</p>
+<p>然后打开git设置(点击头像 seeings)</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54468999-7cd96300-47cd-11e9-912c-6876d0a52614.png" alt="配置新的ssh"></p>
+<p>然后粘贴你的密钥 Add SSH key保存</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54469020-c924a300-47cd-11e9-9bf0-aa23bca3afa0.png" alt="加入密钥保存"></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h4 id="mac-1"><a href="#mac-1" class="headerlink" title="mac"></a>mac</h4><p>我们先找个地方创建一个文件夹这里会存放你的blog(博客)全部内容</p>
+<p>打开终端进入这个文件夹目录 blog是你的文件夹名称</p>
+<p>输入hexo init blog</p>
+<p>然后cd到blog文件夹下安装npm</p>
+<p>输入 npm install</p>
+<p>执行下面的命令开启hexo服务器</p>
+<p>输入 hexo s</p>
+<p>这个时候你可以看见一个这样的博客页面了打开浏览器</p>
+<p>输入 localhost:4000</p>
+<h4 id="接下来就是部署了"><a href="#接下来就是部署了" class="headerlink" title="接下来就是部署了"></a>接下来就是部署了</h4><p>首先介绍一下两个配置文件他们都叫_config.yml</p>
+<p>不同的是blog里面的_config.yml是站点配置文件</p>
+<p>而我们themes文件夹每个主题文件里也有一个_config.yml他是配置主题的文件</p>
+<p>我们打开blog里面的_config.yml 输入vim _config.yml</p>
+<p>翻到最下面改成这样没有就加上</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54469024-d477ce80-47cd-11e9-91af-e0396018de5f.png" alt="这样"></p>
+<p>你的地址在这里</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54469027-e22d5400-47cd-11e9-8287-602cc4544dc8.png" alt="在这里"></p>
+<p>这里需要注意坑二 每一个配置的 ： 后面要有一个空格！！！！<br>然后保存站点配置</p>
+<p>在blog文件夹目录里面执行一下生成静态页面命令</p>
+<p>输入 hexo g  (或是hexo generate)</p>
+<p>如果有报一下错误</p>
+<blockquote>
+<p>ERROR Local hexo not found in ~/blog</p>
+</blockquote>
+<blockquote>
+<p>ERROR Try runing: ‘npm install hexo –save’</p>
+</blockquote>
+<p>就执行 输入 npm install hexo –save<br>没有报错请不要执行或者忽略</p>
+<p>执行配置命令</p>
+<p>hexo d  (或是 hexo deploy)</p>
+<p>这里特别注意 我就是载在这里！ 若执行命令hexo deploy仍然报错：无法连接git或找不到git，则执行如下命令来安装一个叫hexo-deployer-git东西</p>
+<p>输入 npm install hexo-deployer-git –save</p>
+<p>执行 hexo g<br>执行 hexo d</p>
+<p>倘若提示输入密码输入即可没有执行忽略</p>
+<p>这时候就可以访问你的博客了   https://写你的.github.io/</p>
+<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>终端cd到blog文件夹目录 </p>
+<p>输入hexo new “文件名” 新建文章</p>
+<h4 id="发布部署"><a href="#发布部署" class="headerlink" title="发布部署"></a>发布部署</h4><p>然后 hexo g (生成静态页面)<br>在然后 hexo d (部署到github)</p>
+<p>如果出现了花里胡哨的错误可以在生成之前</p>
+<p>输入 hexo clean</p>
+<p>ps: 每次更新都会等那么一会</p>
+<h2 id="写下更换主题吧"><a href="#写下更换主题吧" class="headerlink" title="写下更换主题吧"></a>写下更换主题吧</h2><p>在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>里找到一款主题我的是yilia</p>
+<p>下载这个主题</p>
+<p>输入 git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<p><img src="https://user-images.githubusercontent.com/48438858/54469036-f1ac9d00-47cd-11e9-8484-ecb7ef4a6f84.png" alt="这里会多一个"></p>
+<blockquote>
+<p><code></code><br>打开站点的_config.yml配置文件，将里面的 theme: landscape 改为 theme: yilia.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/48438858/54469042-fbce9b80-47cd-11e9-95d9-cc2677a64899.png" alt="改成你主题的名字"></p>
+<p>然后还是 hexo g 和 hexo d</p>
+<p>最后访问下你的博客吧这里在看看扔出我的</p>
+<p><a href="https://zpangjie.github.io/" target="_blank" rel="noopener">张胖杰的博客</a></p>
+<p>ps: 每次更新都会等那么一会!!!!!!!!</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/14/blog/">用GitHub+hexo创建个博客</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">欢迎来到王小质的博客</a></p>
+        <p><span>发布时间:</span>2019-03-14, 16:34:20</p>
+        <p><span>最后更新:</span>2019-03-18, 10:34:10</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/14/blog/" title="用GitHub+hexo创建个博客">http://yoursite.com/2019/03/14/blog/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/14/blog/　　作者: 欢迎来到王小质的博客" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/03/16/计算机发展史/">
+                    计算机以及操作系统的发展史
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#O-踩了N多坑总结出以下经验"><span class="toc-number">1.</span> <span class="toc-text">O 踩了N多坑总结出以下经验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-常见有三种博客搭建方案"><span class="toc-number">2.</span> <span class="toc-text">一 常见有三种博客搭建方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-下面直接进入主题-👇-博客搭建"><span class="toc-number">3.</span> <span class="toc-text">二 下面直接进入主题 👇 博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先我们需要一个GitHub账号和一个项目库"><span class="toc-number">3.0.1.</span> <span class="toc-text">首先我们需要一个GitHub账号和一个项目库</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三-环境配置"><span class="toc-number">4.</span> <span class="toc-text">三 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先怼node-js"><span class="toc-number">4.1.</span> <span class="toc-text">先怼node,js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再怼git"><span class="toc-number">4.2.</span> <span class="toc-text">再怼git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后就可以安装Hexo了"><span class="toc-number">4.3.</span> <span class="toc-text">然后就可以安装Hexo了</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mac"><span class="toc-number">4.3.1.</span> <span class="toc-text">mac:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#windows"><span class="toc-number">4.3.2.</span> <span class="toc-text">windows:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将你的git与GitHub绑定"><span class="toc-number">4.4.</span> <span class="toc-text">将你的git与GitHub绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址"><span class="toc-number">4.4.1.</span> <span class="toc-text">由于Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成ssh密钥"><span class="toc-number">4.4.2.</span> <span class="toc-text">生成ssh密钥</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-number">5.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mac-1"><span class="toc-number">5.0.1.</span> <span class="toc-text">mac</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#接下来就是部署了"><span class="toc-number">5.0.2.</span> <span class="toc-text">接下来就是部署了</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布文章"><span class="toc-number">5.1.</span> <span class="toc-text">发布文章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#发布部署"><span class="toc-number">5.1.1.</span> <span class="toc-text">发布部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写下更换主题吧"><span class="toc-number">6.</span> <span class="toc-text">写下更换主题吧</span></a></li>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"用GitHub+hexo创建个博客　| 王小质的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/03/16/计算机发展史/" title="上一篇: 计算机以及操作系统的发展史">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/为虚拟机配置静态ip/">为虚拟机配置静态ip(CentOS 6.5)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql用户权限管理/">mysql用户权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/linux卸载软件不卸载依赖/">linux卸载软件不卸载依赖</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/sequeI pro解决连接数据库10秒延迟/">sequeI pro解决连接数据库10秒延迟</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/Vi和Vim的简单使用/">Vi和Vim的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/Linux命令/">Linux基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/linux简介下载/">Linux的简介(含下载地址)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/计算机发展史/">计算机以及操作系统的发展史</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/14/blog/">用GitHub+hexo创建个博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 欢迎来到王小质的博客
+    	</div>
+      	<div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":143},"mobile":{"show":true},"log":false});</script></body>
+</html>

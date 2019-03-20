@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="欢迎来到王小质的博客">
+
+
+
+<meta name="description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
+<meta name="keywords" content="计算机&amp;编程,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql用户权限管理">
+<meta property="og:url" content="http://yoursite.com/2019/03/18/mysql用户权限管理/index.html">
+<meta property="og:site_name" content="王小质的博客">
+<meta property="og:description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-18T02:41:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql用户权限管理">
+<meta name="twitter:description" content="一权限的两阶段验证 服务器检测是否允许连接用户名密码地址(主机)   检测请求有没有权限实施">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="王小质的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/myimg/wln.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>mysql用户权限管理 | 王小质的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/myimg/wln.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">欢迎来到王小质的博客</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">萌妹于我如浮云</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/">编程&amp;计算机</a></li>
+                        
+                            <li><a href="/">平面设计</a></li>
+                        
+                            <li><a href="/">小说&amp;诗</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:654815075@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/guai-xiao-zhi-72/activities" title="知乎"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/88840249ea0a" title="简书"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解决问题/">解决问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机-编程/">计算机&编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础知识/">计算机基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">天空没有留下翅膀的痕迹&lt;br&gt;而我已飞过</div>
+                </section>
+                
+            </div>
+        </div>
+        <div>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=857606&auto=1&height=66"></iframe>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">欢迎来到王小质的博客</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/myimg/wln.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">欢迎来到王小质的博客</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">萌妹于我如浮云</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/">编程&amp;计算机</a></li>
+                
+                    <li><a href="/">平面设计</a></li>
+                
+                    <li><a href="/">小说&amp;诗</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:654815075@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/guai-xiao-zhi-72/activities" title="知乎"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/88840249ea0a" title="简书"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-mysql用户权限管理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/18/mysql用户权限管理/" class="article-date">
+      <time datetime="2019-03-18T02:21:07.000Z" itemprop="datePublished">2019-03-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql用户权限管理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机-编程/">计算机&编程</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="一权限的两阶段验证"><a href="#一权限的两阶段验证" class="headerlink" title="一权限的两阶段验证"></a>一权限的两阶段验证</h3><blockquote>
+<p>服务器检测是否允许连接用户名密码地址(主机)</p>
+</blockquote>
+<blockquote>
+<p>检测请求有没有权限实施</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="二-权限列表"><a href="#二-权限列表" class="headerlink" title="二 权限列表"></a>二 权限列表</h3><table>
+<thead>
+<tr>
+<th>权限</th>
+<th>权限级别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>数据库，表或索引</td>
+<td>创建数据库，表或索引权限</td>
+</tr>
+<tr>
+<td>drop</td>
+<td>数据库或表</td>
+<td>删除数据库或表权限</td>
+</tr>
+<tr>
+<td>grant option</td>
+<td>数据库、表或保存的程序</td>
+<td>赋予权限选项</td>
+</tr>
+<tr>
+<td>references</td>
+<td>数据库或表</td>
+<td>外键权限</td>
+</tr>
+<tr>
+<td>alter</td>
+<td>表</td>
+<td>更改表，比如添加字段、索引、修改字段等</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>表</td>
+<td>删除数据权限</td>
+</tr>
+<tr>
+<td>index</td>
+<td>表</td>
+<td>索引权限</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>表</td>
+<td>插入权限</td>
+</tr>
+<tr>
+<td>select</td>
+<td>表</td>
+<td>查询权限</td>
+</tr>
+<tr>
+<td>update</td>
+<td>表</td>
+<td>更新权限</td>
+</tr>
+<tr>
+<td>create view</td>
+<td>视图</td>
+<td>创建视图权限</td>
+</tr>
+<tr>
+<td>show view</td>
+<td>视图</td>
+<td>查看视图权限</td>
+</tr>
+<tr>
+<td>alter routine</td>
+<td>存储过程</td>
+<td>更改存储过程权限</td>
+</tr>
+<tr>
+<td>create routine</td>
+<td>存储过程</td>
+<td>创建存储过程权限</td>
+</tr>
+<tr>
+<td>execute</td>
+<td>存储过程</td>
+<td>执行存储过程权限</td>
+</tr>
+<tr>
+<td>file</td>
+<td>服务器主机上的文件访问</td>
+<td>文件访问权限</td>
+</tr>
+<tr>
+<td>create temporary tables</td>
+<td>服务器管理</td>
+<td>创建临时表权限lock tables</td>
+<td>服务器管理</td>
+<td>锁表权限</td>
+</tr>
+<tr>
+<td>create user</td>
+<td>服务器管理</td>
+<td>创建用户权限</td>
+</tr>
+<tr>
+<td>proccess</td>
+<td>服务器管理</td>
+<td>查看进程权限</td>
+</tr>
+<tr>
+<td>reload</td>
+<td>服务器管理</td>
+<td>执行flush-hosts, flush-logs, flush-privileges, flush-status, flush-tables, flush-threads, refresh, reload等命令的权限</td>
+</tr>
+<tr>
+<td>replication client</td>
+<td>服务器管理</td>
+<td>复制权限</td>
+</tr>
+<tr>
+<td>replication slave</td>
+<td>服务器管理</td>
+<td>复制权限</td>
+</tr>
+<tr>
+<td>show databases</td>
+<td>服务器管理</td>
+<td>查看数据库权限</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td>服务器管理</td>
+<td>关闭数据库权限</td>
+</tr>
+<tr>
+<td>super</td>
+<td>服务器管理</td>
+<td>执行kill线程权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mysql用户权限管理操作"><a href="#mysql用户权限管理操作" class="headerlink" title="mysql用户权限管理操作"></a>mysql用户权限管理操作</h3><h4 id="1权限查询"><a href="#1权限查询" class="headerlink" title="1权限查询"></a>1权限查询</h4><blockquote>
+<p>1查看所有用户及其权限：select*from mysql.user\G</p>
+</blockquote>
+<blockquote>
+<p>2查看当前mysql用户权限：show grants</p>
+</blockquote>
+<blockquote>
+<p>3查看某个用户的权限：show grants for 用户名@主机</p>
+</blockquote>
+<h4 id="2mysql用户创建"><a href="#2mysql用户创建" class="headerlink" title="2mysql用户创建"></a>2mysql用户创建</h4><blockquote>
+<p>1使用create user命令创建：create user ‘用户名‘@’主机’ identified by ‘密码’</p>
+</blockquote>
+<blockquote>
+<p>2直接向数据表mysql.user中插入一条用户记录</p>
+</blockquote>
+<h4 id="3删除用户"><a href="#3删除用户" class="headerlink" title="3删除用户"></a>3删除用户</h4><blockquote>
+<p>drop user ‘用户名‘@’主机’</p>
+</blockquote>
+<h4 id="4给予权限"><a href="#4给予权限" class="headerlink" title="4给予权限"></a>4给予权限</h4><p>刚创建的用户一般是没有权限的使用grant指令进行权限的授予。</p>
+<p>grant指令完整格式：</p>
+<p>grant 权限列表 on 数据库名.数据表名 to ‘用户名’@’主机’ identified by ‘密码’ with grant option;</p>
+<h4 id="5账户重命名"><a href="#5账户重命名" class="headerlink" title="5账户重命名"></a>5账户重命名</h4><blockquote>
+<p>rename user ‘旧用户名‘@’旧主机’ to ‘新用户名‘@’新主机’;</p>
+</blockquote>
+<h4 id="6用户密码修改"><a href="#6用户密码修改" class="headerlink" title="6用户密码修改"></a>6用户密码修改</h4><blockquote>
+<p>1 使用set password命令 set password for ‘用户名‘@’主机’ = password(‘新密码’);</p>
+</blockquote>
+<blockquote>
+<p>2 修改mysql.user表中的password（或authentication_string）字段。</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/18/mysql用户权限管理/">mysql用户权限管理</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">欢迎来到王小质的博客</a></p>
+        <p><span>发布时间:</span>2019-03-18, 10:21:07</p>
+        <p><span>最后更新:</span>2019-03-18, 10:41:29</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/18/mysql用户权限管理/" title="mysql用户权限管理">http://yoursite.com/2019/03/18/mysql用户权限管理/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/18/mysql用户权限管理/　　作者: 欢迎来到王小质的博客" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/03/18/为虚拟机配置静态ip/">
+                    为虚拟机配置静态ip(CentOS 6.5)
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/03/18/linux卸载软件不卸载依赖/">
+                    linux卸载软件不卸载依赖
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一权限的两阶段验证"><span class="toc-number">1.</span> <span class="toc-text">一权限的两阶段验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-权限列表"><span class="toc-number">2.</span> <span class="toc-text">二 权限列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql用户权限管理操作"><span class="toc-number">3.</span> <span class="toc-text">mysql用户权限管理操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1权限查询"><span class="toc-number">3.1.</span> <span class="toc-text">1权限查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2mysql用户创建"><span class="toc-number">3.2.</span> <span class="toc-text">2mysql用户创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3删除用户"><span class="toc-number">3.3.</span> <span class="toc-text">3删除用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4给予权限"><span class="toc-number">3.4.</span> <span class="toc-text">4给予权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5账户重命名"><span class="toc-number">3.5.</span> <span class="toc-text">5账户重命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6用户密码修改"><span class="toc-number">3.6.</span> <span class="toc-text">6用户密码修改</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"mysql用户权限管理　| 王小质的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/03/18/为虚拟机配置静态ip/" title="上一篇: 为虚拟机配置静态ip(CentOS 6.5)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/03/18/linux卸载软件不卸载依赖/" title="下一篇: linux卸载软件不卸载依赖">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/为虚拟机配置静态ip/">为虚拟机配置静态ip(CentOS 6.5)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql用户权限管理/">mysql用户权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/linux卸载软件不卸载依赖/">linux卸载软件不卸载依赖</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/sequeI pro解决连接数据库10秒延迟/">sequeI pro解决连接数据库10秒延迟</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/Vi和Vim的简单使用/">Vi和Vim的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/Linux命令/">Linux基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/linux简介下载/">Linux的简介(含下载地址)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/16/计算机发展史/">计算机以及操作系统的发展史</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/14/blog/">用GitHub+hexo创建个博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 欢迎来到王小质的博客
+    	</div>
+      	<div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":75,"height":143},"mobile":{"show":true},"log":false});</script></body>
+</html>
