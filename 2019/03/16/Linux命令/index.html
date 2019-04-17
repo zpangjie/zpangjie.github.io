@@ -16,14 +16,10 @@
 <meta property="og:site_name" content="王小质的博客">
 <meta property="og:description" content="超级管理员CentOS/RedHat系统的超级管理员账号为：root 开胃小菜不懂Linux控制台命令，相当于不懂Linux，因此我们要好好学习。先看几个开胃小菜，打开控制台。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://note.youdao.com/yws/res/51///note.youdao.com/src/WEBRESOURCEfe50f5fe0fb94c9d15a04734526e9578">
-<meta property="og:image" content="http://note.youdao.com/yws/res/48///note.youdao.com/src/WEBRESOURCEe5cd79225a9fc8f5077e86fdce305dc0">
-<meta property="og:image" content="http://note.youdao.com/yws/res/55///note.youdao.com/src/WEBRESOURCE05f4e92ca5882c71f4c6ebe21ddbf6a9">
-<meta property="og:updated_time" content="2019-03-16T02:23:05.000Z">
+<meta property="og:updated_time" content="2019-04-17T00:51:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基本命令">
 <meta name="twitter:description" content="超级管理员CentOS/RedHat系统的超级管理员账号为：root 开胃小菜不懂Linux控制台命令，相当于不懂Linux，因此我们要好好学习。先看几个开胃小菜，打开控制台。">
-<meta name="twitter:image" content="http://note.youdao.com/yws/res/51///note.youdao.com/src/WEBRESOURCEfe50f5fe0fb94c9d15a04734526e9578">
   
     <link rel="alternative" href="/atom.xml" title="王小质的博客" type="application/atom+xml">
   
@@ -265,20 +261,6 @@
 <p><code>ctrl+a</code>：将光标快速的切换到命令行最前端</p>
 <p><code>ctrl+e</code>：将光标快速的切换到命令行末端</p>
 <p><code>tab</code>：补全命令或者补全文件名/文件夹名，连按2次，会列出指定目录下指定开头字符的文件或者目录列表</p>
-<h2 id="启动等级（0，1，2，3，5，6）"><a href="#启动等级（0，1，2，3，5，6）" class="headerlink" title="启动等级（0，1，2，3，5，6）"></a>启动等级（0，1，2，3，5，6）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">init 0:关机</span><br><span class="line">init 1：单用户形式，只root进行维护</span><br><span class="line">init 2：多用户，不能使用net file system，即无网络服务</span><br><span class="line">init 3：完全多用户，目前服务器使用最多的模式</span><br><span class="line">init 5：图形化</span><br><span class="line">init 6：重启</span><br></pre></td></tr></table></figure>
-<p>注：init 4：目前系统未使用，空位</p>
-<p>以上命令直接在终端中运行即可，对于启动级别的设置，也可以编辑/etc/inittab进行设置。</p>
-<p>如果启动等级设置成6，那么机器将陷入无限重启状态。怎么解决呢？</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>1.在系统重启的跑秒过程中按键：“e”</p>
-<p><img src="http://note.youdao.com/yws/res/51///note.youdao.com/src/WEBRESOURCEfe50f5fe0fb94c9d15a04734526e9578" alt="1.png"></p>
-<p>2.进入GRUB界面后，使用键盘的上下键，切换到第二行，再按一个“e”，（根据系统情况，可能进GRUB页面并没有如下列表，但是要看最下面的说明，根据说明进行操作）</p>
-<p><mark>注意：这一步可能看到的并不是如下图有3行的样子，可能只有1行，这个时候只需要看方框内的文字说明，按照文字说明操作即可，步骤和下面的基本一致</mark></p>
-<p><img src="http://note.youdao.com/yws/res/48///note.youdao.com/src/WEBRESOURCEe5cd79225a9fc8f5077e86fdce305dc0" alt="2.png"></p>
-<p>3.进入新页面的后，在最后打个空格并输入1，表示使用 “单用户级别” 进行启动（只有启动级别为1时，系统在启动的时候不会去读/etc/inittab）。</p>
-<p><img src="http://note.youdao.com/yws/res/55///note.youdao.com/src/WEBRESOURCE05f4e92ca5882c71f4c6ebe21ddbf6a9" alt="3.png"></p>
-<p>4.然后回到上一级页面，按键“b”进行重启</p>
-<p>5.重启后修改/etc/inittab里面的内容即可</p>
-<p>注：同样的方法，我们也可以修改用户的密码，甚至是root的密码。</p>
 
       
 
