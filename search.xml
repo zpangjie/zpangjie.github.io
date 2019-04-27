@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Linux CentOS完全卸载包跳过依赖关系</title>
+      <link href="/2019/04/27/Linux%20CentOS%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD%E5%8C%85%E8%B7%B3%E8%BF%87%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB/"/>
+      <url>/2019/04/27/Linux%20CentOS%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD%E5%8C%85%E8%B7%B3%E8%BF%87%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-PHP"><a href="#0-PHP" class="headerlink" title="0.PHP"></a>0.PHP</h2><h3 id="查看php版本"><a href="#查看php版本" class="headerlink" title="查看php版本"></a>查看php版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure><h3 id="这时候可以使用"><a href="#这时候可以使用" class="headerlink" title="这时候可以使用"></a>这时候可以使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove php</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="再次用php-v-查看"><a href="#再次用php-v-查看" class="headerlink" title="再次用php -v 查看"></a>再次用php -v 查看</h3><h3 id="如果不行请用下面的"><a href="#如果不行请用下面的" class="headerlink" title="如果不行请用下面的"></a>如果不行请用下面的</h3><h3 id="查找PHP包"><a href="#查找PHP包" class="headerlink" title="查找PHP包"></a>查找PHP包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep php(包名)</span><br></pre></td></tr></table></figure><h3 id="必须强制删除"><a href="#必须强制删除" class="headerlink" title="必须强制删除"></a>必须强制删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e php包名</span><br></pre></td></tr></table></figure><p>提示:卸载要先卸载没有依赖的</p><p>pdo是mysql的依赖 common是gd的依赖</p><h2 id="跳过-忽略不删除依赖-依赖关系强制删除"><a href="#跳过-忽略不删除依赖-依赖关系强制删除" class="headerlink" title="跳过(忽略不删除依赖)依赖关系强制删除"></a>跳过(忽略不删除依赖)依赖关系强制删除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps 文件名</span><br></pre></td></tr></table></figure><h3 id="在看下使用"><a href="#在看下使用" class="headerlink" title="在看下使用"></a>在看下使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">rpm -qa | grep php</span><br></pre></td></tr></table></figure><h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove  mysql mysql-server mysql-libs mysql-server;</span><br></pre></td></tr></table></figure><h3 id="将找到的相关东西删除掉"><a href="#将找到的相关东西删除掉" class="headerlink" title="将找到的相关东西删除掉"></a>将找到的相关东西删除掉</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find / -name mysql </span><br><span class="line"></span><br><span class="line">rm -rf 文件名</span><br></pre></td></tr></table></figure><h3 id="查询删除"><a href="#查询删除" class="headerlink" title="查询删除"></a>查询删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br><span class="line"></span><br><span class="line">rpm -rf 包名</span><br></pre></td></tr></table></figure><h3 id="查看是否还有以rpm包安装的mysql"><a href="#查看是否还有以rpm包安装的mysql" class="headerlink" title="查看是否还有以rpm包安装的mysql"></a>查看是否还有以rpm包安装的mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i mysql</span><br></pre></td></tr></table></figure><h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e 包名</span><br></pre></td></tr></table></figure><h3 id="删除mysql服务"><a href="#删除mysql服务" class="headerlink" title="删除mysql服务"></a>删除mysql服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list | grep -i mysql</span><br><span class="line">chconfig --del mysql</span><br></pre></td></tr></table></figure><h3 id="删除分散的mysql文件夹"><a href="#删除分散的mysql文件夹" class="headerlink" title="删除分散的mysql文件夹"></a>删除分散的mysql文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">whereis mysql </span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">find / -name mysql</span><br></pre></td></tr></table></figure><h3 id="删除即可"><a href="#删除即可" class="headerlink" title="删除即可"></a>删除即可</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf 文件夹名</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机&amp;编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机&amp;编程 </tag>
+            
+            <tag> 环境配置 </tag>
+            
+            <tag> 删除包 </tag>
+            
+            <tag> 依赖关系 </tag>
+            
+            <tag> CentOS6/7 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为虚拟机配置静态ip(CentOS 6.5)</title>
       <link href="/2019/03/18/%E4%B8%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip/"/>
       <url>/2019/03/18/%E4%B8%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip/</url>
@@ -40,27 +73,6 @@
             <tag> 计算机&amp;编程 </tag>
             
             <tag> mysql </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>linux卸载软件不卸载依赖</title>
-      <link href="/2019/03/18/linux%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E4%B8%8D%E5%8D%B8%E8%BD%BD%E4%BE%9D%E8%B5%96/"/>
-      <url>/2019/03/18/linux%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E4%B8%8D%E5%8D%B8%E8%BD%BD%E4%BE%9D%E8%B5%96/</url>
-      
-        <content type="html"><![CDATA[<p>rpm -qa | grep 软件/包名<br>(可能是浏览器问题nodeps前面的-有两个 )<br>rpm -e –nodeps 文件名</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 计算机&amp;编程 </tag>
-            
-            <tag> linux </tag>
             
         </tags>
       
