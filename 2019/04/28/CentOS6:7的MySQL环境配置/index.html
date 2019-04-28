@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href>
   <title>CentOS6/7的MySQL环境配置(细节) | 王小质的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm 安装软件源1yum  -y localinstall mysql57-community-release-el7-11.noarch.rpm 安装MySQL服务端1yum instal">
+  <meta name="description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm">
 <meta name="keywords" content="计算机&amp;编程,环境配置,CentOS6&#x2F;7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS6&#x2F;7的MySQL环境配置(细节)">
 <meta property="og:url" content="/2019/04/28/CentOS6:7的MySQL环境配置/index.html">
 <meta property="og:site_name" content="王小质的博客">
-<meta property="og:description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm 安装软件源1yum  -y localinstall mysql57-community-release-el7-11.noarch.rpm 安装MySQL服务端1yum instal">
+<meta property="og:description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T07:21:58.000Z">
+<meta property="og:updated_time" content="2019-04-28T07:24:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6&#x2F;7的MySQL环境配置(细节)">
-<meta name="twitter:description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm 安装软件源1yum  -y localinstall mysql57-community-release-el7-11.noarch.rpm 安装MySQL服务端1yum instal">
+<meta name="twitter:description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm">
   
     <link rel="alternative" href="/atom.xml" title="王小质的博客" type="application/atom+xml">
   
@@ -196,6 +196,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-安装MySQL"><a href="#1-安装MySQL" class="headerlink" title="1 安装MySQL"></a>1 安装MySQL</h2><h3 id="下载软件源-（这里我下载的是MySQL5-7）"><a href="#下载软件源-（这里我下载的是MySQL5-7）" class="headerlink" title="下载软件源 （这里我下载的是MySQL5.7）"></a>下载软件源 （这里我下载的是MySQL5.7）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="安装软件源"><a href="#安装软件源" class="headerlink" title="安装软件源"></a>安装软件源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum  -y localinstall mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
 <h3 id="安装MySQL服务端"><a href="#安装MySQL服务端" class="headerlink" title="安装MySQL服务端"></a>安装MySQL服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-community-server</span><br></pre></td></tr></table></figure>
 <h2 id="2-配置数据库"><a href="#2-配置数据库" class="headerlink" title="2 配置数据库"></a>2 配置数据库</h2><h3 id="打开配置文件"><a href="#打开配置文件" class="headerlink" title="打开配置文件"></a>打开配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
