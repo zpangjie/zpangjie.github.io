@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="王小质的博客">
 <meta property="og:description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T07:24:05.000Z">
+<meta property="og:updated_time" content="2019-04-28T07:26:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6&#x2F;7的MySQL环境配置(细节)">
 <meta name="twitter:description" content="1 安装MySQL下载软件源 （这里我下载的是MySQL5.7）1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm">
@@ -204,7 +204,7 @@
 <h3 id="然后创建-client-部分-并写入"><a href="#然后创建-client-部分-并写入" class="headerlink" title="然后创建[client]部分 并写入"></a>然后创建[client]部分 并写入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#支持客户端的utf8</span><br><span class="line">default-character-set=utf8mb4</span><br></pre></td></tr></table></figure>
 <h2 id="3-初始化与启动"><a href="#3-初始化与启动" class="headerlink" title="3 初始化与启动"></a>3 初始化与启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 初始化数据库</span><br><span class="line">mysqld --initialize</span><br></pre></td></tr></table></figure>
 <h3 id="CentOS6启动"><a href="#CentOS6启动" class="headerlink" title="CentOS6启动"></a>CentOS6启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
-<h3 id="CentOS7启动"><a href="#CentOS7启动" class="headerlink" title="CentOS7启动"></a>CentOS7启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+<h3 id="CentOS7启动"><a href="#CentOS7启动" class="headerlink" title="CentOS7启动"></a>CentOS7启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
 <h2 id="4-查询初始密码并更改"><a href="#4-查询初始密码并更改" class="headerlink" title="4 查询初始密码并更改"></a>4 查询初始密码并更改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat  /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
 <h3 id="然后我们就可以看到"><a href="#然后我们就可以看到" class="headerlink" title="然后我们就可以看到"></a>然后我们就可以看到</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019-04-28T03:29:10.453537Z 1 [Note] A temporary password is generated for root@localhost: /seg.eY)je@n</span><br><span class="line">这里: 后面的就是我们的密码</span><br></pre></td></tr></table></figure>
 <h3 id="用该密码登录我们的MySQL服务端"><a href="#用该密码登录我们的MySQL服务端" class="headerlink" title="用该密码登录我们的MySQL服务端"></a>用该密码登录我们的MySQL服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
