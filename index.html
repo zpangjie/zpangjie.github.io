@@ -175,6 +175,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CentOS6:7的MySQL环境配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/28/CentOS6:7的MySQL环境配置/">CentOS6/7的MySQL环境配置(细节)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/28/CentOS6:7的MySQL环境配置/" class="archive-article-date">
+  	<time datetime="2019-04-28T07:20:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安装MySQL"><a href="#1-安装MySQL" class="headerlink" title="1 安装MySQL"></a>1 安装MySQL</h2><h3 id="下载软件源-（这里我下载的是MySQL5-7）"><a href="#下载软件源-（这里我下载的是MySQL5-7）" class="headerlink" title="下载软件源 （这里我下载的是MySQL5.7）"></a>下载软件源 （这里我下载的是MySQL5.7）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="安装软件源"><a href="#安装软件源" class="headerlink" title="安装软件源"></a>安装软件源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum  -y localinstall mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="安装MySQL服务端"><a href="#安装MySQL服务端" class="headerlink" title="安装MySQL服务端"></a>安装MySQL服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-community-server</span><br></pre></td></tr></table></figure>
+<h2 id="2-配置数据库"><a href="#2-配置数据库" class="headerlink" title="2 配置数据库"></a>2 配置数据库</h2><h3 id="打开配置文件"><a href="#打开配置文件" class="headerlink" title="打开配置文件"></a>打开配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<h3 id="然后找到-mysql-部分在里面添加"><a href="#然后找到-mysql-部分在里面添加" class="headerlink" title="然后找到[mysql]部分在里面添加"></a>然后找到[mysql]部分在里面添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 设置utf8编码 这样我们创建的库都会自动支持中文</span><br><span class="line">character-set-server=utf8mb4</span><br><span class="line"># TIMESTAMP的默认行为</span><br><span class="line">explicit_defaults_for_timestamp=true</span><br></pre></td></tr></table></figure>
+<h3 id="然后创建-client-部分-并写入"><a href="#然后创建-client-部分-并写入" class="headerlink" title="然后创建[client]部分 并写入"></a>然后创建[client]部分 并写入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#支持客户端的utf8</span><br><span class="line">default-character-set=utf8mb4</span><br></pre></td></tr></table></figure>
+<h2 id="3-初始化与启动"><a href="#3-初始化与启动" class="headerlink" title="3 初始化与启动"></a>3 初始化与启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 初始化数据库</span><br><span class="line">mysqld --initialize</span><br></pre></td></tr></table></figure>
+<h3 id="CentOS6启动"><a href="#CentOS6启动" class="headerlink" title="CentOS6启动"></a>CentOS6启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
+<h3 id="CentOS7启动"><a href="#CentOS7启动" class="headerlink" title="CentOS7启动"></a>CentOS7启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+<h2 id="4-查询初始密码并更改"><a href="#4-查询初始密码并更改" class="headerlink" title="4 查询初始密码并更改"></a>4 查询初始密码并更改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat  /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
+<h3 id="然后我们就可以看到"><a href="#然后我们就可以看到" class="headerlink" title="然后我们就可以看到"></a>然后我们就可以看到</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019-04-28T03:29:10.453537Z 1 [Note] A temporary password is generated for root@localhost: /seg.eY)je@n</span><br><span class="line">这里: 后面的就是我们的密码</span><br></pre></td></tr></table></figure>
+<h3 id="用该密码登录我们的MySQL服务端"><a href="#用该密码登录我们的MySQL服务端" class="headerlink" title="用该密码登录我们的MySQL服务端"></a>用该密码登录我们的MySQL服务端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<h3 id="然后修改root密码"><a href="#然后修改root密码" class="headerlink" title="然后修改root密码"></a>然后修改root密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for &apos;root&apos;@&apos;localhost&apos; = password(&apos;你想改的密码&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="这里我们的密码可能有比较严格的要求-我们可以通过关闭验证插件的方法改一个简单的密码"><a href="#这里我们的密码可能有比较严格的要求-我们可以通过关闭验证插件的方法改一个简单的密码" class="headerlink" title="这里我们的密码可能有比较严格的要求 我们可以通过关闭验证插件的方法改一个简单的密码"></a>这里我们的密码可能有比较严格的要求 我们可以通过关闭验证插件的方法改一个简单的密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">仅建议开发环境或学习环境 不建议生产环境使用</span><br><span class="line">validate_password=off</span><br></pre></td></tr></table></figure>
+<h3 id="接着我们还可以随手创建一个拥有远程权限的用户"><a href="#接着我们还可以随手创建一个拥有远程权限的用户" class="headerlink" title="接着我们还可以随手创建一个拥有远程权限的用户"></a>接着我们还可以随手创建一个拥有远程权限的用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;用户名&apos;@&apos;%&apos; IDENTIFIED BY &apos;用户密码&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+<p>附：</p>
+<h3 id="其他参考资料"><a href="#其他参考资料" class="headerlink" title="其他参考资料"></a>其他参考资料</h3><h4 id="CentOS6-7-重启环境"><a href="#CentOS6-7-重启环境" class="headerlink" title="CentOS6/7 重启环境"></a><a href="https://zpangjie.github.io/2019/04/27/centos6:7%E9%87%8D%E5%90%AF%E7%8E%AF%E5%A2%83/" target="_blank" rel="noopener">CentOS6/7 重启环境</a></h4><h4 id="linux下CentOS6-7-完全卸载包"><a href="#linux下CentOS6-7-完全卸载包" class="headerlink" title="linux下CentOS6/7 完全卸载包"></a><a href="https://zpangjie.github.io/2019/04/27/Linux%20CentOS%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD%E5%8C%85%E8%B7%B3%E8%BF%87%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB/" target="_blank" rel="noopener">linux下CentOS6/7 完全卸载包</a></h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境配置</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6/7</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/计算机-编程//" class="article-tag-list-link color2">计算机&编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/28/CentOS6:7的MySQL环境配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux CentOS完全卸载包跳过依赖关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -218,15 +326,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6/7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">删除包</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">依赖关系</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6/7</a>
         		</li>
       		
 		</ul>
@@ -941,84 +1049,6 @@
 
 
   
-    <article id="post-计算机发展史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/计算机发展史/">计算机以及操作系统的发展史</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/16/计算机发展史/" class="archive-article-date">
-  	<time datetime="2019-03-16T00:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h2><h3 id="计算机的诞生"><a href="#计算机的诞生" class="headerlink" title="计算机的诞生"></a>计算机的诞生</h3><p>1946年2月14日，在美国宾夕法尼亚大学，世界上第一台计算机ENIAC诞生，是美国军方定制，专门为了计算弹道和射击特性表面而研制的，承担开发任务的“莫尔小组”由四位科学家和工程师埃克特、莫克利、戈尔斯坦、博克斯组成。这台计算机主要元器件采用的是电子管。该机使用了1500个继电器，18800个电子管，占地170m2，重量重达30多吨，耗电150KW，造价48万美元。开机时让周围居民暂时停电。这台计算机每秒能完成5000次加法运算，400次乘法运算，比当时最快的计算工具快300倍，是继电器计算机的1000倍、手工计算的20万倍。用今天的标准看，它是那样的“笨拙”和“低级”，其功能远不如一只掌上可编程计算器，但它使科学家们从复杂的计算中解脱出来，它的诞生标志着人类进入了一个崭新的信息革命时代。<br>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">计算机&编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计算机基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/16/计算机发展史/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1127,6 +1157,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CentOS6/7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">删除包</a>
               </li>
              
@@ -1135,15 +1169,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CentOS6/7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">环境重启</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,10 +1190,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
