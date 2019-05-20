@@ -24,9 +24,9 @@
             
             <tag> CentOS6/7 </tag>
             
-            <tag> 虚拟机 </tag>
-            
             <tag> 共享目录 </tag>
+            
+            <tag> 虚拟机 </tag>
             
         </tags>
       
@@ -84,11 +84,11 @@
             
             <tag> 环境配置 </tag>
             
+            <tag> CentOS6/7 </tag>
+            
             <tag> 删除包 </tag>
             
             <tag> 依赖关系 </tag>
-            
-            <tag> CentOS6/7 </tag>
             
         </tags>
       
